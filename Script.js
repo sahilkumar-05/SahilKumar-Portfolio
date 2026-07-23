@@ -1,5 +1,41 @@
-  document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function(){
   // Splash screen
+  // Serve separate desktop/mobile images for project screenshots (no <picture> tag needed)
+  var mobileMQ = window.matchMedia('(max-width:820px)');
+  var projImgs = document.querySelectorAll('.proj-front-media img[data-desktop]');
+
+  function applyResponsiveSrc(){
+    var useMobile = mobileMQ.matches;
+    projImgs.forEach(function(img){
+      var desired = useMobile ? img.dataset.mobile : img.dataset.desktop;
+      if(!desired || img.getAttribute('src') === desired) return;
+      // If a mobile image doesn't exist, fall back to desktop on error
+      img.onerror = function(){
+        if(img.getAttribute('src') !== img.dataset.desktop){
+          img.src = img.dataset.desktop;
+        } else {
+          img.classList.add('img-missing');
+        }
+      };
+      img.src = desired;
+    });
+  }
+
+  applyResponsiveSrc();
+  if(mobileMQ.addEventListener){ mobileMQ.addEventListener('change', applyResponsiveSrc); }
+  else if(mobileMQ.addListener){ mobileMQ.addListener(applyResponsiveSrc); } // older Safari
+
+  // Add blurred backdrop for project images (fixes mobile cropping)
+document.querySelectorAll('.proj-front-media').forEach(function(media){
+  var img = media.querySelector('img');
+  if(!img) return;
+  var bg = document.createElement('div');
+  bg.className = 'media-bg';
+  function setBg(){ bg.style.backgroundImage = 'url("' + img.src + '")'; }
+  if(img.complete) setBg(); else img.addEventListener('load', setBg);
+  media.insertBefore(bg, img);
+  img.addEventListener('load', setBg); // keep backdrop in sync when src swaps (mobile/desktop)
+});
   var splash = document.getElementById('splash');
   setTimeout(function(){
     splash.classList.add('hide');
