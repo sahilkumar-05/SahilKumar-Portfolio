@@ -393,7 +393,8 @@ html[data-theme="dark"] .proj-back{background:var(--teal-deep);}
 
 
 @media (max-width:820px){
-  .proj-card{aspect-ratio:auto;min-height:400px;}
+ .proj-card{ aspect-ratio: 16/10; min-height: unset; }
+  .proj-front-media img{ object-position: top center; }
 }
 @media (max-width:560px){
   .proj-card{min-height:460px;}
