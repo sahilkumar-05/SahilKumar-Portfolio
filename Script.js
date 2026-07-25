@@ -268,7 +268,7 @@ document.querySelectorAll('.proj-front-media').forEach(function(media){
   if(!outer || !grid || !btn) return;
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.proj-card'));
-  var visibleCount = 2;   // full cards shown at start
+  var visibleCount = 3;   // full cards shown at start
 
   function updateHeight(){
     if(visibleCount >= cards.length){
