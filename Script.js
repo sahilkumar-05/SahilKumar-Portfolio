@@ -1,4 +1,4 @@
-<script>
+
     lucide.createIcons();
 
     /* TOGGLE MOBILE NAVIGATION DRAWER */
@@ -198,4 +198,3 @@
     }
 
     window.addEventListener('scroll', updatePinnedShowcase, { passive: true });
-  </script>
