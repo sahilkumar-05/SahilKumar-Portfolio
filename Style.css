@@ -298,8 +298,8 @@
     }
 
     @keyframes superFastSwing {
-      0% { transform: rotate(5deg); }
-      100% { transform: rotate(-5deg); }
+      0% { transform: rotate(15deg); }
+      100% { transform: rotate(-15deg); }
     }
 
     .card-hole {
@@ -741,7 +741,7 @@
       display: flex;
       gap: 24px;
       width: max-content;
-      animation: fastInfiniteLoop 12s linear infinite;
+      animation: fastInfiniteLoop 20s linear infinite;
     }
 
     .marquee-container:hover .marquee-track {
