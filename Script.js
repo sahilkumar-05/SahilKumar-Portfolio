@@ -1,7 +1,119 @@
-
+<script>
     lucide.createIcons();
 
-    /* DYNAMIC HANGING ID CARD SLIDESHOW */
+    /* TOGGLE MOBILE NAVIGATION DRAWER */
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileNavDrawer');
+      drawer.classList.toggle('active');
+    }
+
+    /* TOGGLE FLOATING POP-UP CHAT WINDOW */
+    function togglePopupChat() {
+      const chatWindow = document.getElementById('popupChatWindow');
+      chatWindow.classList.toggle('active');
+    }
+
+    /* DETAILED KNOWLEDGE REPOSITORY FOR BOTH CHATS */
+    const knowledgeBase = {
+      university: {
+        user: "Which university do you study at?",
+        bot: "<strong>University Details:</strong><br>• Institution: SZABIST University, Karachi<br>• Degree: Bachelor of Science in Computer Science (BSCS)<br>• Expected Graduation: 2027"
+      },
+      cgpa: {
+        user: "What is your current CGPA?",
+        bot: "<strong>Academic Standing:</strong><br>• CGPA: <strong>3.08 / 4.00</strong><br>• Maintaining a strong balance between coursework and production projects."
+      },
+      leadership: {
+        user: "What are your leadership experiences?",
+        bot: "<strong>Leadership Roles:</strong><br>1. <strong>Tech Core Director</strong> — Zabefest, SZABIST (2026): Managed technical teams for 1000+ participants.<br>2. <strong>Marketing Director</strong> — ACM Society, SZABIST (2025–2026).<br>3. <strong>Brand Ambassador</strong> — Developers Day, FAST University (2026)."
+      },
+      certifications: {
+        user: "What certifications do you have?",
+        bot: "<strong>Certifications:</strong><br>• Detailed certification records and certificates are currently being updated. Feel free to check my GitHub or LinkedIn for recent project credentials!"
+      },
+      techstack: {
+        user: "What is your core tech stack?",
+        bot: "<strong>Tech Stacks:</strong><br>• Frontend: React.js, Next.js, Tailwind CSS<br>• Backend: Node.js, Nest.js, ASP.NET Core, Flask<br>• Mobile: React Native, TypeScript<br>• Data & AI: PostgreSQL, Prisma ORM, PyTorch"
+      },
+      projects: {
+        user: "What are your major production projects?",
+        bot: "<strong>Featured Projects:</strong><br>• ProjectVault (AI Developer Memory System)<br>• FixKarachi (Civic Issue Reporting Mobile App)<br>• MealSync (Catering Management System)<br>• EventSphere & PayPredict (PyTorch AI Neural Net)"
+      },
+      coursework: {
+        user: "What academic coursework have you completed?",
+        bot: "<strong>Completed Coursework:</strong><br>• Data Structures and Algorithms (DSA)<br>• Object-Oriented Programming (OOP)<br>• Web Development<br>• Hybrid Mobile Application Development<br>• Operating Systems<br>• Database Management Systems (DBMS)"
+      },
+      contact: {
+        user: "What are your contact details?",
+        bot: "<strong>Contact Details:</strong><br>• Email: heresahil294@gmail.com (<a href='https://mail.google.com/mail/?view=cm&fs=1&to=heresahil294@gmail.com' target='_blank' style='color:#0071e3;'>Send Email</a>)<br>• Phone: +92 333 7302994 (<a href='tel:+923337302994' style='color:#0071e3;'>Call Direct</a>)"
+      },
+      github: {
+        user: "What is your GitHub profile?",
+        bot: "<strong>GitHub Profile:</strong><br>• <a href='https://github.com/sahilkumar-05' target='_blank' style='color:#0071e3;'>github.com/sahilkumar-05</a>"
+      },
+      linkedin: {
+        user: "What is your LinkedIn profile?",
+        bot: "<strong>LinkedIn Profile:</strong><br>• <a href='https://www.linkedin.com/in/sahil-kumar005/' target='_blank' style='color:#0071e3;'>linkedin.com/in/sahil-kumar005</a>"
+      }
+    };
+
+    function triggerMainPreset(key) {
+      processPreset(key, 'mainChatWindow');
+    }
+
+    function triggerPopupPreset(key) {
+      processPreset(key, 'popupChatWindowBody');
+    }
+
+    function processPreset(key, containerId) {
+      const data = knowledgeBase[key];
+      if (!data) return;
+
+      const chatContainer = document.getElementById(containerId);
+      if (!chatContainer) return;
+
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.innerText = data.user;
+      chatContainer.appendChild(userBubble);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      // Show typing indicator
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'chat-bubble bot typing';
+      typingBubble.innerText = 'Typing...';
+      chatContainer.appendChild(typingBubble);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      setTimeout(() => {
+        chatContainer.removeChild(typingBubble);
+
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble bot';
+        botBubble.innerHTML = data.bot;
+        chatContainer.appendChild(botBubble);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 500);
+    }
+
+    /* MOCKUP CAROUSEL LOGIC */
+    const slideIndices = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
+
+    function changeSlide(projectIndex, direction) {
+      const showcaseLayouts = document.querySelectorAll('.showcase-layout');
+      const targetLayout = showcaseLayouts[projectIndex];
+      const images = targetLayout.querySelectorAll('.mockup-img');
+      
+      if (images.length === 0) return;
+
+      slideIndices[projectIndex] = (slideIndices[projectIndex] + direction + images.length) % images.length;
+      
+      images.forEach((img, idx) => {
+        img.classList.toggle('active', idx === slideIndices[projectIndex]);
+      });
+    }
+
+    /* ID CARD SLIDESHOW */
     const photos = document.querySelectorAll('.id-photo');
     let currentPhotoIndex = 0;
     setInterval(() => {
@@ -10,7 +122,7 @@
       photos[currentPhotoIndex].classList.add('active');
     }, 3500);
 
-    /* CONTACT MODAL CONTROL */
+    /* MODAL CONTROL */
     function openContactModal() {
       document.getElementById('contactModal').classList.add('active');
     }
@@ -18,63 +130,11 @@
       document.getElementById('contactModal').classList.remove('active');
     }
 
-    /* PREDEFINED GLASSMorphic OPTION HANDLER */
-    const presets = {
-      edu: {
-        user: "Tell me about Sahil's Education & CGPA.",
-        bot: "<strong>Academic Background:</strong><br>• Degree: Bachelor of Science in Computer Science (BSCS)<br>• Institution: SZABIST University, Karachi<br>• Expected Graduation: 2027<br>• Academic Standing: <strong>3.08 CGPA</strong>"
-      },
-      leadership: {
-        user: "Show Sahil's Leadership & Director Experience.",
-        bot: "<strong>Leadership Roles & Achievements:</strong><br>1. <strong>Tech Core Director</strong> — Zabefest, SZABIST (2026): Coordinated a 6–10 member technical team managing event systems for 1000+ participants.<br>2. <strong>Marketing Director</strong> — ACM Student Chapter, SZABIST (2025–2026): Led multi-channel promotional campaigns.<br>3. <strong>Brand Ambassador</strong> — Developers Day, FAST University (2026): Expanded outreach across student tech communities.<br>4. <strong>Hackathon Participant & NYVN Volunteer</strong>: Active member of local tech hackathons and community networks."
-      },
-      projects: {
-        user: "What are Sahil's key production projects?",
-        bot: "<strong>Featured Production Builds:</strong><br>• <strong>ProjectVault</strong>: Next.js + Google Gemini 2.5 Flash developer memory app.<br>• <strong>FixKarachi</strong>: Civic issue reporting React Native mobile app.<br>• <strong>MealSync</strong>: Enterprise multi-tenant NestJS catering management tool.<br>• <strong>EventSphere</strong>: Campus event registration React Native app.<br>• <strong>PayPredict</strong>: PyTorch Neural Network predicting salaries with 91% accuracy.<br>• <strong>SmartVote</strong>: C# ASP.NET Core online voting platform."
-      },
-      tech: {
-        user: "What is Sahil's core technology stack?",
-        bot: "<strong>Technical Capabilities:</strong><br>• <strong>Frontend & Mobile</strong>: React.js, Next.js, React Native, TypeScript, Tailwind CSS, HTML5/CSS3<br>• <strong>Backend & AI</strong>: Node.js, Nest.js, ASP.NET Core (C#), Flask, PyTorch, Gemini API<br>• <strong>Databases & DevOps</strong>: PostgreSQL (Neon), SQL Server, Prisma ORM, Git, GitHub"
-      },
-      intern: {
-        user: "Is Sahil open for internships?",
-        bot: "<strong>Availability:</strong><br>Yes! Sahil is actively open for Full-Stack Web, Mobile, or AI Software Engineering Internship opportunities for 2026."
-      },
-      contact: {
-        user: "How can I contact Sahil directly?",
-        bot: "<strong>Direct Contact Information:</strong><br>• <strong>Location</strong>: Karachi, Pakistan<br>• <strong>Email</strong>: heresahil294@gmail.com<br>• <strong>Phone</strong>: +92 333 7302994<br>• <strong>LinkedIn</strong>: <a href='https://www.linkedin.com/in/sahil-kumar005/' target='_blank' style='color:#0a84ff; font-weight:600;'>sahil-kumar005</a><br>• <strong>GitHub</strong>: <a href='https://github.com/sahilkumar-05' target='_blank' style='color:#0a84ff; font-weight:600;'>sahilkumar-05</a>"
-      }
-    };
-
-    function triggerPreset(key) {
-      const data = presets[key];
-      if (!data) return;
-
-      const chatWindow = document.getElementById('chatWindow');
-
-      // Add user query bubble
-      const userBubble = document.createElement('div');
-      userBubble.className = 'chat-bubble user';
-      userBubble.innerText = data.user;
-      chatWindow.appendChild(userBubble);
-
-      // Add bot response bubble
-      setTimeout(() => {
-        const botBubble = document.createElement('div');
-        botBubble.className = 'chat-bubble bot';
-        botBubble.innerHTML = data.bot;
-        chatWindow.appendChild(botBubble);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-      }, 250);
-
-      chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-
-    /* 3D CANVAS PARTICLES */
+    /* HERO CANVAS PARTICLES */
     const canvas = document.getElementById('hero-canvas');
     const ctx = canvas.getContext('2d');
-
     let width, height;
+
     function resize() {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -86,39 +146,28 @@
     const count = 70;
 
     for (let i = 0; i < count; i++) {
-      const angle = (i / count) * Math.PI * 2;
       particles.push({
-        angle: angle,
+        angle: (i / count) * Math.PI * 2,
         radius: 180 + Math.random() * 50,
         yOffset: (Math.random() - 0.5) * 60,
         speed: 0.0015 + Math.random() * 0.002
       });
     }
 
-    let scrollProgress = 0;
-
     function drawCanvas() {
       ctx.clearRect(0, 0, width, height);
       const centerX = width / 2;
       const centerY = height / 2;
-      const rotationY = scrollProgress * Math.PI;
 
       particles.forEach(p => {
         p.angle += p.speed;
-        const currentAngle = p.angle + rotationY;
-
-        const x3d = Math.cos(currentAngle) * p.radius;
-        const z3d = Math.sin(currentAngle) * p.radius;
-        const fov = 350;
-        const perspective = fov / (fov + z3d);
-
-        const screenX = centerX + x3d * perspective;
-        const screenY = centerY + p.yOffset * perspective;
-        const opacity = Math.max(0.08, (z3d + p.radius) / (2 * p.radius));
+        const x3d = Math.cos(p.angle) * p.radius;
+        const z3d = Math.sin(p.angle) * p.radius;
+        const perspective = 350 / (350 + z3d);
 
         ctx.beginPath();
-        ctx.arc(screenX, screenY, 2 * perspective, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(30, 30, 30, ${opacity * (1 - scrollProgress * 0.8)})`;
+        ctx.arc(centerX + x3d * perspective, centerY + p.yOffset * perspective, 2 * perspective, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(30, 30, 30, 0.3)`;
         ctx.fill();
       });
 
@@ -126,8 +175,7 @@
     }
     drawCanvas();
 
-    /* WORK SHOWCASE SCROLL SCRIPT */
-    const heroTrigger = document.getElementById('hero-trigger');
+    /* PINNED DESKTOP SCRIPT */
     const pinnedWrapper = document.getElementById('pinned-wrapper');
     const showcaseLayouts = document.querySelectorAll('.showcase-layout');
     const progressDots = document.querySelectorAll('.progress-dot');
@@ -137,43 +185,17 @@
 
       const wrapperRect = pinnedWrapper.getBoundingClientRect();
       const wrapperHeight = pinnedWrapper.offsetHeight - window.innerHeight;
-      
       const scrollRatio = Math.min(Math.max(-wrapperRect.top / wrapperHeight, 0), 0.999);
       const activeIndex = Math.floor(scrollRatio * 6);
 
       showcaseLayouts.forEach((layout, idx) => {
-        if (idx === activeIndex) {
-          layout.classList.add('active');
-        } else {
-          layout.classList.remove('active');
-        }
+        layout.classList.toggle('active', idx === activeIndex);
       });
 
       progressDots.forEach((dot, idx) => {
-        if (idx === activeIndex) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
+        dot.classList.toggle('active', idx === activeIndex);
       });
     }
 
-    function onScroll() {
-      const scrollY = window.scrollY;
-      const heroHeight = heroTrigger.offsetHeight - window.innerHeight;
-      scrollProgress = Math.min(Math.max(scrollY / heroHeight, 0), 1);
-
-      const heroContent = document.querySelector('.hero-content');
-      if (scrollProgress > 0) {
-        heroContent.style.transform = `scale(${1 - scrollProgress * 0.15}) translateY(${-scrollProgress * 40}px)`;
-        heroContent.style.opacity = `${1 - scrollProgress * 1.5}`;
-      } else {
-        heroContent.style.transform = `scale(1) translateY(0px)`;
-        heroContent.style.opacity = `1`;
-      }
-
-      updatePinnedShowcase();
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('scroll', updatePinnedShowcase, { passive: true });
+  </script>
