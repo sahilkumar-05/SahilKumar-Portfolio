@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Sahil Kumar — Web | App Developer | React, Node.js & ASP.NET</title>
   <meta name="description" content="Portfolio of Sahil Kumar, a WEB | APP developer building web and mobile products with React, Node.js, ASP.NET and PostgreSQL. BSCS student open to internships.">
   
@@ -12,11 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="Style.css">
- 
+
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar with Mobile Drawer -->
   <header>
     <a href="#" class="brand">Sahil Kumar</a>
     <nav>
@@ -25,8 +25,21 @@
       <a href="#skills">Skills Dashboard</a>
       <a href="#leadership">Leadership</a>
     </nav>
-    <button onclick="openContactModal()" class="nav-cta">Contact</button>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <button onclick="openContactModal()" class="nav-cta">Contact</button>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i data-lucide="menu" size="22"></i>
+      </button>
+    </div>
   </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="#about" onclick="toggleMobileMenu()">About</a>
+    <a href="#projects" onclick="toggleMobileMenu()">Work Showcase</a>
+    <a href="#skills" onclick="toggleMobileMenu()">Skills Dashboard</a>
+    <a href="#leadership" onclick="toggleMobileMenu()">Leadership</a>
+  </div>
 
   <!-- 3D SCROLL HERO -->
   <div class="hero-container" id="hero-trigger">
@@ -42,19 +55,19 @@
         
         <div class="social-bar">
           <a href="https://www.linkedin.com/in/sahil-kumar005/" target="_blank" rel="noopener" class="social-chip">
-            <i data-lucide="linkedin" size="15"></i> LinkedIn
+            <i data-lucide="linkedin" size="16"></i> LinkedIn
           </a>
           <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="social-chip">
-            <i data-lucide="github" size="15"></i> GitHub
+            <i data-lucide="github" size="16"></i> GitHub
           </a>
           <button onclick="openContactModal()" class="social-chip">
-            <i data-lucide="mail" size="15"></i> Email Direct
+            <i data-lucide="mail" size="16"></i> Email Direct
           </button>
           <a href="tel:+923337302994" class="social-chip">
-            <i data-lucide="phone" size="15"></i> +92 333 7302994
+            <i data-lucide="phone" size="16"></i> +92 333 7302994
           </a>
           <a href="assets/Sahil Kumar_Resume.docx (1).pdf" download class="social-chip" style="background: var(--apple-text); color: #fff;">
-            <i data-lucide="download" size="15"></i> Resume
+            <i data-lucide="download" size="16"></i> Resume
           </a>
         </div>
       </div>
@@ -90,7 +103,7 @@
         </div>
 
         <div class="about-text">
-          <div class="section-header" style="margin-bottom: 20px;">
+          <div class="section-header" style="margin-bottom: 24px;">
             <h2 class="section-title">From coursework to production-shaped code.</h2>
             <p class="section-subtitle">A quick overview of my journey.</p>
           </div>
@@ -116,11 +129,11 @@
       </div>
     </section>
 
-    <!-- WORK SHOWCASE SECTION (5 PROJECTS + BLANK GITHUB FRAME) -->
+    <!-- PROJECTS SECTION WITH MULTI-IMAGE CAROUSELS -->
     <section id="projects">
       <div class="section-header">
         <h2 class="section-title">Interactive Work Story.</h2>
-        <p class="section-subtitle">Explore my key web, mobile, and AI applications.</p>
+        <p class="section-subtitle">Explore featured builds below. Use arrows on mockups to view multiple screenshots.</p>
       </div>
 
       <div class="pinned-showcase-wrapper" id="pinned-wrapper">
@@ -128,6 +141,16 @@
           
           <!-- PROJECT 1 -->
           <div class="showcase-layout web-layout active" data-index="0">
+            <div class="showcase-mock-area">
+              <div class="tablet-mockup">
+                <button class="mockup-arrow prev" onclick="changeSlide(0, -1)"><i data-lucide="chevron-left" size="18"></i></button>
+                <div class="tablet-screen">
+                  <img src="assets/ProjectVault.png" alt="ProjectVault 1" class="mockup-img active" data-slide="0">
+                  <img src="assets/ProjectVault2.png" alt="ProjectVault 2" class="mockup-img" data-slide="1">
+                </div>
+                <button class="mockup-arrow next" onclick="changeSlide(0, 1)"><i data-lucide="chevron-right" size="18"></i></button>
+              </div>
+            </div>
             <div class="showcase-info-area">
               <span class="showcase-badge">01 / Full-Stack Web + AI</span>
               <h3 class="showcase-title">ProjectVault — AI Developer Memory System</h3>
@@ -140,22 +163,14 @@
                 <span class="pill">PostgreSQL</span>
                 <span class="pill">Prisma</span>
                 <span class="pill">Gemini API</span>
-                <span class="pill">Mermaid.js</span>
               </div>
               <div class="action-btn-group">
                 <a href="https://project-vault-pn38.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
-                  <i data-lucide="globe" size="15"></i> Live Demo
+                  <i data-lucide="globe" size="16"></i> Live Demo
                 </a>
                 <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-secondary">
-                  <i data-lucide="github" size="15"></i> GitHub
+                  <i data-lucide="github" size="16"></i> GitHub
                 </a>
-              </div>
-            </div>
-            <div class="showcase-mock-area">
-              <div class="tablet-mockup">
-                <div class="tablet-screen">
-                  <img src="assets/ProjectVault.png" alt="ProjectVault Screenshot" class="mockup-img">
-                </div>
               </div>
             </div>
           </div>
@@ -165,16 +180,19 @@
             <div class="showcase-mock-area">
               <div class="mobile-mockup">
                 <div class="mobile-notch"></div>
+                <button class="mockup-arrow prev" onclick="changeSlide(1, -1)" style="left: 6px;"><i data-lucide="chevron-left" size="16"></i></button>
                 <div class="mobile-screen">
-                  <img src="assets/Untitled design (1).png" alt="FixKarachi Screenshot" class="mockup-img">
+                  <img src="assets/Untitled design (1).png" alt="FixKarachi 1" class="mockup-img active" data-slide="0">
+                  <img src="assets/Untitled design (2).png" alt="FixKarachi 2" class="mockup-img" data-slide="1">
                 </div>
+                <button class="mockup-arrow next" onclick="changeSlide(1, 1)" style="right: 6px;"><i data-lucide="chevron-right" size="16"></i></button>
               </div>
             </div>
             <div class="showcase-info-area">
               <span class="showcase-badge">02 / Civic Mobile Application</span>
               <h3 class="showcase-title">FixKarachi — Civic Issue Reporting</h3>
               <p class="showcase-desc">
-                Civic issue reporting mobile app where residents report municipal issues (broken roads, water leakage). Includes an admin dashboard to centralize complaint tracking across channels.
+                Civic issue reporting mobile app where residents report municipal issues (broken roads, water leakage). Includes an admin dashboard to centralize complaint tracking.
               </p>
               <div class="tech-pills">
                 <span class="pill">React Native</span>
@@ -183,10 +201,10 @@
               </div>
               <div class="action-btn-group">
                 <a href="https://fix-karachi-civic-issue-reporting-m.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
-                  <i data-lucide="globe" size="15"></i> Live Demo
+                  <i data-lucide="globe" size="16"></i> Live Demo
                 </a>
                 <a href="https://github.com/sahilkumar-05/FixKarachi-Civic-Issue-Reporting-Mobile-App" target="_blank" rel="noopener" class="btn-action-secondary">
-                  <i data-lucide="github" size="15"></i> GitHub Source
+                  <i data-lucide="github" size="16"></i> GitHub
                 </a>
               </div>
             </div>
@@ -194,11 +212,21 @@
 
           <!-- PROJECT 3 -->
           <div class="showcase-layout web-layout" data-index="2">
+            <div class="showcase-mock-area">
+              <div class="tablet-mockup">
+                <button class="mockup-arrow prev" onclick="changeSlide(2, -1)"><i data-lucide="chevron-left" size="18"></i></button>
+                <div class="tablet-screen">
+                  <img src="assets/MealSync.png" alt="MealSync 1" class="mockup-img active" data-slide="0">
+                  <img src="assets/MealSync2.png" alt="MealSync 2" class="mockup-img" data-slide="1">
+                </div>
+                <button class="mockup-arrow next" onclick="changeSlide(2, 1)"><i data-lucide="chevron-right" size="18"></i></button>
+              </div>
+            </div>
             <div class="showcase-info-area">
               <span class="showcase-badge">03 / Enterprise AI Platform</span>
               <h3 class="showcase-title">MealSync — Catering Management System</h3>
               <p class="showcase-desc">
-                Multi-tenant catering platform serving hospitals and universities with 6 permission levels. Features AI menu generation, allergy conflict detection, procurement forecasting, and waste analysis.
+                Multi-tenant catering platform serving hospitals and universities with 6 permission levels. Features AI menu generation, allergy conflict detection, and forecasting.
               </p>
               <div class="tech-pills">
                 <span class="pill">Nest.js</span>
@@ -208,18 +236,11 @@
               </div>
               <div class="action-btn-group">
                 <a href="https://meal-sync-cattering-management-with-theta.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
-                  <i data-lucide="globe" size="15"></i> Live Demo
+                  <i data-lucide="globe" size="16"></i> Live Demo
                 </a>
                 <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-secondary">
-                  <i data-lucide="github" size="15"></i> GitHub
+                  <i data-lucide="github" size="16"></i> GitHub
                 </a>
-              </div>
-            </div>
-            <div class="showcase-mock-area">
-              <div class="tablet-mockup">
-                <div class="tablet-screen">
-                  <img src="assets/MealSync.png" alt="MealSync Platform" class="mockup-img">
-                </div>
               </div>
             </div>
           </div>
@@ -229,16 +250,19 @@
             <div class="showcase-mock-area">
               <div class="mobile-mockup">
                 <div class="mobile-notch"></div>
+                <button class="mockup-arrow prev" onclick="changeSlide(3, -1)" style="left: 6px;"><i data-lucide="chevron-left" size="16"></i></button>
                 <div class="mobile-screen">
-                  <img src="assets/USER SIDE (4).png" alt="EventSphere Mobile App" class="mockup-img">
+                  <img src="assets/USER SIDE (4).png" alt="EventSphere 1" class="mockup-img active" data-slide="0">
+                  <img src="assets/USER SIDE (5).png" alt="EventSphere 2" class="mockup-img" data-slide="1">
                 </div>
+                <button class="mockup-arrow next" onclick="changeSlide(3, 1)" style="right: 6px;"><i data-lucide="chevron-right" size="16"></i></button>
               </div>
             </div>
             <div class="showcase-info-area">
               <span class="showcase-badge">04 / University Event Mobile App</span>
               <h3 class="showcase-title">EventSphere — Campus Management</h3>
               <p class="showcase-desc">
-                Cross-platform mobile app enabling students to browse and register for university events. Implemented role-based access control and dynamic flows in a single codebase.
+                Cross-platform mobile app enabling students to browse and register for university events. Implemented role-based access control and dynamic flows.
               </p>
               <div class="tech-pills">
                 <span class="pill">React Native</span>
@@ -247,10 +271,10 @@
               </div>
               <div class="action-btn-group">
                 <a href="https://event-sphere-university-event-manag.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
-                  <i data-lucide="globe" size="15"></i> Live Demo
+                  <i data-lucide="globe" size="16"></i> Live Demo
                 </a>
                 <a href="https://github.com/sahilkumar-05/EventSphere-University-Event-Management-Mobile-App" target="_blank" rel="noopener" class="btn-action-secondary">
-                  <i data-lucide="github" size="15"></i> GitHub Source
+                  <i data-lucide="github" size="16"></i> GitHub
                 </a>
               </div>
             </div>
@@ -258,11 +282,21 @@
 
           <!-- PROJECT 5 -->
           <div class="showcase-layout web-layout" data-index="4">
+            <div class="showcase-mock-area">
+              <div class="tablet-mockup">
+                <button class="mockup-arrow prev" onclick="changeSlide(4, -1)"><i data-lucide="chevron-left" size="18"></i></button>
+                <div class="tablet-screen">
+                  <img src="assets/PayPredict.png" alt="PayPredict 1" class="mockup-img active" data-slide="0">
+                  <img src="assets/PayPredict2.png" alt="PayPredict 2" class="mockup-img" data-slide="1">
+                </div>
+                <button class="mockup-arrow next" onclick="changeSlide(4, 1)"><i data-lucide="chevron-right" size="18"></i></button>
+              </div>
+            </div>
             <div class="showcase-info-area">
               <span class="showcase-badge">05 / Machine Learning Neural Net</span>
               <h3 class="showcase-title">PayPredict — Salary Neural Network</h3>
               <p class="showcase-desc">
-                Deep learning regression neural network built in PyTorch to predict employee salaries from position-level data, improving prediction accuracy by 91%.
+                Deep learning regression neural network built in PyTorch to predict employee salaries from position-level data with 91% accuracy.
               </p>
               <div class="tech-pills">
                 <span class="pill">Python</span>
@@ -272,39 +306,31 @@
               </div>
               <div class="action-btn-group">
                 <a href="https://paypredict.up.railway.app/" target="_blank" rel="noopener" class="btn-action-primary">
-                  <i data-lucide="globe" size="15"></i> Live Demo
+                  <i data-lucide="globe" size="16"></i> Live Demo
                 </a>
                 <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-secondary">
-                  <i data-lucide="github" size="15"></i> GitHub
+                  <i data-lucide="github" size="16"></i> GitHub
                 </a>
-              </div>
-            </div>
-            <div class="showcase-mock-area">
-              <div class="tablet-mockup">
-                <div class="tablet-screen">
-                  <img src="assets/PayPredict.png" alt="PayPredict Dashboard" class="mockup-img">
-                </div>
               </div>
             </div>
           </div>
 
-          <!-- 6TH SLIDE: CLEAN BLANK SCREEN WITH GITHUB CTA -->
-          <div class="showcase-layout" data-index="5" style="grid-template-columns: 1fr;">
+          <!-- 6TH SLIDE -->
+          <div class="showcase-layout full-width-slide" data-index="5">
             <div class="blank-github-card">
               <div class="blank-github-icon">
-                <i data-lucide="code" size="28" style="color: var(--apple-text);"></i>
+                <i data-lucide="code" size="32" style="color: var(--apple-text);"></i>
               </div>
-              <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em;">More Projects Available on GitHub</h3>
-              <p style="color: var(--apple-subtext); font-size: 0.95rem; max-width: 560px; margin-bottom: 24px; line-height: 1.5;">
+              <h3 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em;">More Projects Available on GitHub</h3>
+              <p style="color: var(--apple-subtext); font-size: 1.05rem; max-width: 600px; margin-bottom: 28px; line-height: 1.5;">
                 Explore additional full-stack Web, Mobile, ASP.NET Core, and AI microservices repositories on my GitHub profile.
               </p>
-              <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-primary" style="padding: 12px 24px; font-size: 0.9rem;">
-                <i data-lucide="github" size="16"></i> Explore GitHub Repository
+              <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-primary" style="padding: 12px 28px; font-size: 0.95rem;">
+                <i data-lucide="github" size="18"></i> Explore GitHub Repository
               </a>
             </div>
           </div>
 
-          <!-- Progress Dots -->
           <div class="showcase-progress">
             <div class="progress-dot active" data-index="0"></div>
             <div class="progress-dot" data-index="1"></div>
@@ -318,20 +344,17 @@
       </div>
     </section>
 
-    <!-- CLEAN APPLE SKILLS CARDS GRID -->
+    <!-- SKILLS -->
     <section class="section-padding" id="skills">
       <div class="section-header">
         <h2 class="section-title">Developer Skill Matrix.</h2>
-        <p class="section-subtitle">Core technical capabilities across full-stack web, mobile, and artificial intelligence.</p>
+        <p class="section-subtitle">Core technical capabilities across full-stack web, mobile, and AI.</p>
       </div>
 
-      <!-- Clean 4-Card Grid -->
       <div class="skills-hud-grid">
-        
-        <!-- Frontend Card -->
         <div class="hud-card">
           <div class="hud-card-top">
-            <div class="hud-card-title"><i data-lucide="layout-grid" size="18"></i> Frontend Development</div>
+            <div class="hud-card-title"><i data-lucide="layout-grid" size="20"></i> Frontend Development</div>
             <span class="hud-badge">UI/UX Engine</span>
           </div>
           <div class="skill-pills-static">
@@ -342,11 +365,10 @@
           </div>
         </div>
 
-        <!-- Backend Card -->
         <div class="hud-card">
           <div class="hud-card-top">
-            <div class="hud-card-title"><i data-lucide="server" size="18"></i> Backend Systems</div>
-            <span class="hud-badge">APIs & Microservices</span>
+            <div class="hud-card-title"><i data-lucide="server" size="20"></i> Backend Systems</div>
+            <span class="hud-badge">APIs & Services</span>
           </div>
           <div class="skill-pills-static">
             <span class="hud-skill-chip-static">Node.js</span>
@@ -356,10 +378,9 @@
           </div>
         </div>
 
-        <!-- Mobile & AI Card -->
         <div class="hud-card">
           <div class="hud-card-top">
-            <div class="hud-card-title"><i data-lucide="smartphone" size="18"></i> Mobile & Deep Learning</div>
+            <div class="hud-card-title"><i data-lucide="smartphone" size="20"></i> Mobile & Deep Learning</div>
             <span class="hud-badge">Mobile & AI</span>
           </div>
           <div class="skill-pills-static">
@@ -370,10 +391,9 @@
           </div>
         </div>
 
-        <!-- Database Card -->
         <div class="hud-card">
           <div class="hud-card-top">
-            <div class="hud-card-title"><i data-lucide="database" size="18"></i> Data & Infrastructure</div>
+            <div class="hud-card-title"><i data-lucide="database" size="20"></i> Data & Infrastructure</div>
             <span class="hud-badge">Databases</span>
           </div>
           <div class="skill-pills-static">
@@ -383,27 +403,26 @@
             <span class="hud-skill-chip-static">Git / GitHub</span>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- HORIZONTAL INFINITE AUTO-SCROLL LEADERSHIP CAROUSEL -->
+    <!-- LEADERSHIP CAROUSEL -->
     <section class="section-padding" id="leadership">
       <div class="section-header">
         <h2 class="section-title">Leadership & Outreach.</h2>
-        <p class="section-subtitle">Roles in university societies, tech festivals, and campus initiatives.</p>
+        <p class="section-subtitle">Roles in university societies and tech festivals.</p>
       </div>
 
       <div class="marquee-container">
         <div class="marquee-track">
-          
+          <!-- SET 1 -->
           <div class="leadership-card">
             <div class="card-img-wrapper">
               <img src="assets/Trophy.JPG" alt="Zab-e-Fest Tech Core">
             </div>
             <div class="leadership-role">Tech Core Director</div>
             <div class="leadership-org">Zabefest, SZABIST (2026)</div>
-            <div class="leadership-desc">Coordinated a 6–10 member technical team managing event systems and digital infrastructure for 300–1000 participants.</div>
+            <div class="leadership-desc">Coordinated a 6–10 member technical team managing event systems for 1000+ participants.</div>
           </div>
 
           <div class="leadership-card">
@@ -412,7 +431,7 @@
             </div>
             <div class="leadership-role">Marketing Director</div>
             <div class="leadership-org">ACM Society, SZABIST (2025–2026)</div>
-            <div class="leadership-desc">Increased student engagement by leading a 6–10 person marketing team through multi-channel promotional campaigns.</div>
+            <div class="leadership-desc">Increased student engagement by leading a 6–10 person marketing team.</div>
           </div>
 
           <div class="leadership-card">
@@ -421,7 +440,7 @@
             </div>
             <div class="leadership-role">Brand Ambassador</div>
             <div class="leadership-org">Developers Day, FAST University (2026)</div>
-            <div class="leadership-desc">Expanded the event's reach by representing Developers Day to the student tech community through direct outreach.</div>
+            <div class="leadership-desc">Expanded the event's reach through direct student tech community outreach.</div>
           </div>
 
           <div class="leadership-card">
@@ -430,7 +449,7 @@
             </div>
             <div class="leadership-role">Hackathon Participant</div>
             <div class="leadership-org">Zab-e-Fest Hackathon (2026)</div>
-            <div class="leadership-desc">Participated in Hackathon at Zab-e-Fest 2026, gaining mentorship from industry leaders to polish leadership skills.</div>
+            <div class="leadership-desc">Participated in Hackathon, gaining mentorship from industry leaders.</div>
           </div>
 
           <div class="leadership-card">
@@ -439,17 +458,17 @@
             </div>
             <div class="leadership-role">Volunteer / Attendee</div>
             <div class="leadership-org">National Youth Volunteer Network (2026)</div>
-            <div class="leadership-desc">Attended National Youth Volunteer Network (NYVN) at SZABIST Karachi, fostering youth community development.</div>
+            <div class="leadership-desc">Attended NYVN at SZABIST Karachi, fostering community development.</div>
           </div>
 
-          <!-- LOOP REPEAT -->
+          <!-- SET 2 (DUPLICATED FOR SEAMLESS INFINITE LOOP) -->
           <div class="leadership-card">
             <div class="card-img-wrapper">
               <img src="assets/Trophy.JPG" alt="Zab-e-Fest Tech Core">
             </div>
             <div class="leadership-role">Tech Core Director</div>
             <div class="leadership-org">Zabefest, SZABIST (2026)</div>
-            <div class="leadership-desc">Coordinated a 6–10 member technical team managing event systems for 300–1000 participants.</div>
+            <div class="leadership-desc">Coordinated a 6–10 member technical team managing event systems for 1000+ participants.</div>
           </div>
 
           <div class="leadership-card">
@@ -458,113 +477,167 @@
             </div>
             <div class="leadership-role">Marketing Director</div>
             <div class="leadership-org">ACM Society, SZABIST (2025–2026)</div>
-            <div class="leadership-desc">Increased student engagement leading marketing teams across multi-channel campaigns.</div>
+            <div class="leadership-desc">Increased student engagement by leading a 6–10 person marketing team.</div>
           </div>
 
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/DEV_DAY.png" alt="Brand Ambassador FAST">
+            </div>
+            <div class="leadership-role">Brand Ambassador</div>
+            <div class="leadership-org">Developers Day, FAST University (2026)</div>
+            <div class="leadership-desc">Expanded the event's reach through direct student tech community outreach.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/Hackathon.jpeg" alt="Hackathon Participant">
+            </div>
+            <div class="leadership-role">Hackathon Participant</div>
+            <div class="leadership-org">Zab-e-Fest Hackathon (2026)</div>
+            <div class="leadership-desc">Participated in Hackathon, gaining mentorship from industry leaders.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/hr.jpg" alt="NYVN Volunteer">
+            </div>
+            <div class="leadership-role">Volunteer / Attendee</div>
+            <div class="leadership-org">National Youth Volunteer Network (2026)</div>
+            <div class="leadership-desc">Attended NYVN at SZABIST Karachi, fostering community development.</div>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- TRANSPARENT GLASSMorphism AI HR ASSISTANT -->
+  <!-- FOOTER WITH WHITE GLASS CHATBOT & SLEEK BLACK BOTTOM STRIP -->
   <footer class="footer-bento">
     <div class="container">
-      
       <div class="footer-headline-box">
-        <h2 class="footer-headline">Looking for talent? Instant HR Intelligence.</h2>
-        <p class="footer-sub">Click any predefined topic below to inspect Sahil's academic records, leadership experience, or contact details.</p>
+        <h2 class="footer-headline">Direct Candidate Access & Recruiter Assistant.</h2>
+        <p class="footer-sub">Explore Sahil's verified academic records, coursework, leadership, and tech stack instantly.</p>
       </div>
 
-      <!-- Transparent Glass Card -->
       <div class="glass-assistant-card">
         <div class="glass-assistant-header">
-          <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
             <div class="glass-avatar">
-              <i data-lucide="sparkles" size="18"></i>
+              <i data-lucide="sparkles" size="20"></i>
             </div>
             <div>
-              <div style="font-size: 0.9rem; font-weight: 700;">Sahil HR Intelligence</div>
-              <div style="font-size: 0.75rem; color: #34c759; font-weight: 600; display:flex; align-items:center; gap:4px;">
-                <span class="status-dot"></span> Pre-verified Candidate Profile
+              <div style="font-size: 0.95rem; font-weight: 700;">Sahil's Interactive Profile Assistant</div>
+              <div style="font-size: 0.78rem; color: #34c759; font-weight: 600; display:flex; align-items:center; gap:5px;">
+                <span class="status-dot"></span> Online & Verified Data Source
               </div>
             </div>
           </div>
-          <div style="font-size: 0.75rem; font-weight:600; color: var(--apple-subtext); background: rgba(0,0,0,0.04); padding: 4px 10px; border-radius:12px;">
-            Glassmorphic UI
+          <div style="font-size: 0.78rem; font-weight:600; color: var(--apple-subtext); background: rgba(0,0,0,0.05); padding: 4px 12px; border-radius:12px;">
+            Instant Inspector
           </div>
         </div>
 
-        <div class="glass-window-body" id="chatWindow">
+        <div class="glass-window-body" id="mainChatWindow">
           <div class="chat-bubble bot">
-            Hello! Welcome to Sahil's candidate profile display. Please tap any option button below to auto-load detailed information regarding education (3.08 CGPA), leadership, tech stack, or direct contact methods!
+            Welcome recruiter! Tap any option button below to instantly inspect Sahil's University, CGPA, Coursework, Leadership, Certifications, Tech Stack, Projects, or Contact info.
           </div>
         </div>
 
-        <!-- Predefined Interactive Options -->
+        <!-- OPTIONS BUTTONS WITHOUT EMOJIS -->
         <div class="glass-predefined-options">
-          <span style="font-size: 0.78rem; font-weight: 700; color: var(--apple-subtext); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.05em; width: 100%;">Select Query:</span>
-          <button class="glass-option-btn" onclick="triggerPreset('edu')">
-            <i data-lucide="graduation-cap" size="14"></i> Education & CGPA
-          </button>
-          <button class="glass-option-btn" onclick="triggerPreset('leadership')">
-            <i data-lucide="award" size="14"></i> Leadership & Director Roles
-          </button>
-          <button class="glass-option-btn" onclick="triggerPreset('projects')">
-            <i data-lucide="folder-git2" size="14"></i> All Production Projects
-          </button>
-          <button class="glass-option-btn" onclick="triggerPreset('tech')">
-            <i data-lucide="cpu" size="14"></i> Core Tech Stack
-          </button>
-          <button class="glass-option-btn" onclick="triggerPreset('intern')">
-            <i data-lucide="briefcase" size="14"></i> Internship & Availability
-          </button>
-          <button class="glass-option-btn" onclick="triggerPreset('contact')">
-            <i data-lucide="phone-call" size="14"></i> Contact & Location
-          </button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('university')">University</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('cgpa')">CGPA</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('leadership')">Leadership</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('certifications')">Certifications</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('techstack')">Tech Stacks</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('projects')">Projects</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('coursework')">Coursework</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('contact')">Contact Details</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('github')">GitHub</button>
+          <button class="glass-option-btn" onclick="triggerMainPreset('linkedin')">LinkedIn</button>
         </div>
 
-        <!-- Direct Contact Action Buttons -->
         <div class="glass-action-bottom-bar">
-          <span style="font-size: 0.82rem; color: var(--apple-subtext); font-weight: 500;">
-            Ready to schedule an interview or request a call?
-          </span>
+          <span style="font-size: 0.85rem; color: var(--apple-subtext); font-weight: 500;">Ready to schedule an interview or hire?</span>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <button onclick="openContactModal()" class="btn-action-primary" style="padding: 8px 16px; font-size: 0.8rem;">
-              <i data-lucide="mail" size="14"></i> Contact Form
+            <button onclick="openContactModal()" class="btn-action-primary" style="padding: 8px 16px; font-size: 0.82rem;">
+              <i data-lucide="mail" size="15"></i> Open Form
             </button>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=heresahil294@gmail.com" target="_blank" class="btn-action-secondary" style="padding: 8px 16px; font-size: 0.8rem;">
-              <i data-lucide="send" size="14"></i> Gmail Email
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=heresahil294@gmail.com" target="_blank" class="btn-action-secondary" style="padding: 8px 16px; font-size: 0.82rem;">
+              <i data-lucide="send" size="15"></i> Email
             </a>
-            <a href="tel:+923337302994" class="btn-action-secondary" style="padding: 8px 16px; font-size: 0.8rem;">
-              <i data-lucide="phone" size="14"></i> Call Sahil
+            <a href="tel:+923337302994" class="btn-action-secondary" style="padding: 8px 16px; font-size: 0.82rem;">
+              <i data-lucide="phone" size="15"></i> Call Direct
             </a>
           </div>
         </div>
-
       </div>
+    </div>
 
-      <!-- Footer Bottom Bar -->
-      <div class="footer-bottom-bar">
-        <div class="system-status">
-          <span class="status-dot"></span> Open for Web & Mobile Engineering Internships 2026
-        </div>
-        <div>© 2026 Sahil Kumar. Built with clean HTML, CSS & JavaScript.</div>
+    <!-- SLEEK BLACK BOTTOM STRIP -->
+    <div class="footer-bottom-bar">
+      <div class="system-status">
+        <span class="status-dot"></span> Open for Engineering Internships 2026
       </div>
-
     </div>
   </footer>
 
-  <!-- DIRECT CONTACT MODAL FORM -->
+  <!-- FLOATING POP-UP CHATBOT WIDGET -->
+  <div class="floating-chatbot-container">
+    <div class="floating-bot-bubble" id="botBubbleText">Need quick details? 👋</div>
+    
+    <!-- POP-UP CHAT WINDOW -->
+    <div class="popup-chat-window" id="popupChatWindow">
+      <div class="popup-chat-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="popup-avatar">
+            <i data-lucide="sparkles" size="16"></i>
+          </div>
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 700;">Sahil's Assistant</div>
+            <div style="font-size: 0.7rem; color: #34c759; font-weight: 600; display:flex; align-items:center; gap:4px;">
+              <span class="status-dot"></span> Online
+            </div>
+          </div>
+        </div>
+        <button class="popup-close-btn" onclick="togglePopupChat()">&times;</button>
+      </div>
+
+      <div class="popup-chat-body" id="popupChatWindowBody">
+        <div class="chat-bubble bot">
+          Hi recruiter! Select any option below to inspect details instantly.
+        </div>
+      </div>
+
+      <div class="popup-chat-options">
+        <button class="popup-option-btn" onclick="triggerPopupPreset('university')">University</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('cgpa')">CGPA</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('leadership')">Leadership</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('certifications')">Certifications</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('techstack')">Tech Stacks</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('projects')">Projects</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('coursework')">Coursework</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('contact')">Contact Details</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('github')">GitHub</button>
+        <button class="popup-option-btn" onclick="triggerPopupPreset('linkedin')">LinkedIn</button>
+      </div>
+    </div>
+
+    <!-- TOGGLE BUTTON -->
+    <button class="floating-bot-btn" onclick="togglePopupChat()" title="Open Assistant">
+      💬
+    </button>
+  </div>
+
+  <!-- MODAL -->
   <div class="modal-overlay" id="contactModal">
     <div class="modal-card">
       <button class="modal-close" onclick="closeContactModal()">&times;</button>
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 6px;">Send Message to Sahil</h3>
-      <p style="color: var(--apple-subtext); font-size: 0.85rem; margin-bottom: 18px;">Fill out the form below or open web email directly.</p>
+      <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;">Send Message to Sahil</h3>
       
       <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
         <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-        
         <div class="form-group">
           <label>Your Name</label>
           <input type="text" name="name" class="form-control" placeholder="John Doe" required>
@@ -575,21 +648,15 @@
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea name="message" class="form-control" rows="3" placeholder="Hi Sahil, we'd like to interview you for an opportunity..." required></textarea>
+          <textarea name="message" class="form-control" rows="4" placeholder="Hi Sahil..." required></textarea>
         </div>
-
-        <button type="submit" class="btn-action-primary" style="width: 100%; justify-content: center; padding: 10px;">
+        <button type="submit" class="btn-action-primary" style="width: 100%; justify-content: center; padding: 12px;">
           Send Message
         </button>
       </form>
-
-      <div style="margin-top: 14px; text-align: center; font-size: 0.78rem; color: var(--apple-subtext);">
-        Or open directly in browser: 
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=heresahil294@gmail.com" target="_blank" style="color: var(--apple-text); font-weight: 600;">Gmail Web</a>
-      </div>
     </div>
   </div>
 
- <script src="Script.js"></script>
+  <script src="Script.js"></script>
 </body>
 </html>
