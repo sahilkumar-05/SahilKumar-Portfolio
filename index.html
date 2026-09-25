@@ -1,753 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sahil Kumar — Web | App Developer | React, Node.js & ASP.NET</title>
-<meta name="description" content="Portfolio of Sahil Kumar, a WEB | APP developer building web and mobile products with React, Node.js, ASP.NET and PostgreSQL. BSCS student open to internships.">
-<meta name="keywords" content="Sahil Kumar, web | app developer, React developer, Node.js, ASP.NET, PostgreSQL, React Native, Karachi developer, BSCS SZABIST">
-<meta name="author" content="Sahil Kumar">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0D3940">
-<link rel="canonical" href="https://sahilkumar.dev/">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sahil Kumar — WEB | APP Developer">
-<meta property="og:description" content="BSCS student building end-to-end web & mobile products with React, Node.js, ASP.NET and PostgreSQL. Open to internships.">
-<meta property="og:image" content="assets/og-cover.jpg">
-<meta property="og:url" content="https://sahilkumar.dev/">
-<meta property="og:site_name" content="Sahil Kumar Portfolio">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sahil Kumar — WEB | APP Developer">
-<meta name="twitter:description" content="BSCS student building end-to-end web & mobile products with React, Node.js, ASP.NET and PostgreSQL.">
-<meta name="twitter:image" content="assets/og-cover.jpg">
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230D3940'/%3E%3Ctext x='50' y='64' font-family='monospace' font-size='40' font-weight='700' fill='%23F2A71B' text-anchor='middle'%3ESK%3C/text%3E%3C/svg%3E">
-
-<!-- Fonts: preconnect to both required origins, load only the weights actually used -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sahil Kumar — Web | App Developer | React, Node.js & ASP.NET</title>
+  <meta name="description" content="Portfolio of Sahil Kumar, a WEB | APP developer building web and mobile products with React, Node.js, ASP.NET and PostgreSQL. BSCS student open to internships.">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="Style.css">
-
-
+ 
 </head>
-<body class="locked">
+<body>
 
-<div id="splash">
-  <div class="splash-mark">
-    <span class="logo-mark">SK</span>
-    <span class="word">Sahil Kumar<small>WEB | APP DEVELOPER</small></span>
-  </div>
-  <div class="splash-code">compiling portfolio<span class="cur" style="display:inline-block;width:7px;height:14px;background:#F2A71B;vertical-align:middle;margin-left:6px;animation:blink 1s step-end infinite;"></span></div>
-  <div class="splash-bar"><i></i></div>
-</div>
+  <!-- Navigation Bar -->
+  <header>
+    <a href="#" class="brand">Sahil Kumar</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Work Showcase</a>
+      <a href="#skills">Skills Dashboard</a>
+      <a href="#leadership">Leadership</a>
+    </nav>
+    <button onclick="openContactModal()" class="nav-cta">Contact</button>
+  </header>
 
-<header>
-  <nav class="wrap">
-    <a href="#top" class="logo">
-      <span class="logo-mark">SK</span>
-      <span>Sahil Kumar<span class="sub">WEB | APP Dev</span></span>
-    </a>
-    <div class="nav-links">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-cta">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span class="ico-light">🌙</span><span class="ico-dark">☀️</span>
-      </button>
-      <a href="assets/Sahil Kumar_Resume.docx (1).pdf" download class="btn btn-outline">Resume</a>
-      <a href="#contact" class="btn btn-amber">Hire Me</a>
-    </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
+  <!-- 3D SCROLL HERO -->
+  <div class="hero-container" id="hero-trigger">
+    <div class="hero-sticky">
+      <canvas id="hero-canvas"></canvas>
 
-<!-- Mobile menu drawer -->
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
-  <a href="#about" class="mobile-link">About</a>
-  <a href="#skills" class="mobile-link">Skills</a>
-  <a href="#projects" class="mobile-link">Projects</a>
-  <a href="#experience" class="mobile-link">Experience</a>
-  <a href="#contact" class="mobile-link">Contact</a>
-  <div class="m-divider"></div>
-  <div class="m-cta">
-    <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle dark mode" style="align-self:center;">
-      <span class="ico-light">🌙</span><span class="ico-dark">☀️</span>
-    </button>
-    <a href="assets/Sahil Kumar_Resume.docx (1).pdf" download class="btn btn-outline" style="justify-content:center;">Download Resume</a>
-    <a href="#contact" class="btn btn-amber" style="justify-content:center;">Hire Me</a>
-  </div>
-</div>
-
-<section class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Available for internships</span>
-     <h1>Building full-stack products that <span class="accent">ship</span>, not just compile.</h1>
-      <p class="lede">I'm Sahil Kumar — a BSCS student who builds end-to-end web and mobile apps, from REST APIs to working across React, Node.js, ASP.NET and PostgreSQL — from a real-time voting platform to a deep-learning salary predictor.</p>
-      <div class="hero-cta-row">
-        <a href="#projects" class="btn btn-teal">View Projects →</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-        <a href="assets/Sahil Kumar_Resume.docx (1).pdf" download class="btn btn-amber btn-resume">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
-          Download Resume
-        </a>
-      </div>
-      <div class="hero-stack">
-        <span class="stack-chip">React.js</span>
-        <span class="stack-chip">Node.js</span>
-        <span class="stack-chip">ASP.NET Core</span>
-        <span class="stack-chip">PostgreSQL</span>
-        <span class="stack-chip">React Native</span>
-        <span class="stack-chip">TypeScript</span>
-      </div>
-    </div>
-
-    <div class="hero-art">
-      <div class="code-card">
-        <div class="code-top">
-          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <span class="file-name">developer.ts</span>
-        </div>
-        <div class="code-body" id="typedCode"></div>
-      </div>
-      <div class="float-chip c1"><span class="ic" style="background:#EAF3F5;">🎓</span> BSCS · SZABIST</div>
-      <div class="float-chip c2"><span class="ic" style="background:#FDF1DC;">🚀</span> WEB | APP DEVELOPMENT</div>
-    </div>
-  </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" style="fill:var(--bg);"></path></svg></div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="about-copy" data-reveal="left">
-      <span class="eyebrow">About Me</span>
-      <h2 style="margin-top:12px;">From coursework to production-shaped code.</h2>
-      <p>I'm a Computer Science student at SZABIST, Karachi, expecting to graduate in 2027. Over the last couple of years I've moved past tutorial projects into building complete systems — a role-based online voting platform, an airline booking backend, and a PyTorch model that predicts salaries from position data.</p>
-      <p>I like owning things end-to-end: designing the database schema, writing the API, and shipping a UI that people can actually use. Outside of code, I've led technical and marketing teams for university-wide events with 300–1000+ participants.</p>
-
-      <div class="about-info-grid">
-        <div class="about-mini-card">
-          <span class="ic">🎓</span>
-          <div class="txt"><div class="t">SZABIST University</div><div class="s">BSCS · Batch 2027</div></div>
-        </div>
-        <div class="about-mini-card">
-          <span class="ic">💼</span>
-          <div class="txt"><div class="t">Open for Internship</div><div class="s">Web &amp; App Development</div></div>
-        </div>
-        <div class="about-mini-card">
-          <span class="ic">📍</span>
-          <div class="txt"><div class="t">Karachi, Pakistan</div><div class="s">Remote or Onsite</div></div>
-        </div>
-        <div class="about-mini-card">
-          <span class="ic">🚀</span>
-          <div class="txt"><div class="t">6+ Projects</div><div class="s">Built &amp; Deployed</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="about-photo" data-reveal="right">
-      <div class="photo-card" id="aboutSlideshow">
-        <img class="slide active" src="assets/Portrail1.png" alt="Sahil Kumar at Zabefest" loading="lazy" onerror="this.classList.add('img-missing')">
-        <img class="slide" src="assets/Portrait2.png" alt="Sahil Kumar working" loading="lazy" onerror="this.classList.add('img-missing')">
-        <img class="slide" src="assets/Portrait3.JPG" alt="Sahil Kumar at event" loading="lazy" onerror="this.classList.add('img-missing')">
-        <img class="slide" src="assets/portrait 4.jpg" alt="Sahil Kumar with team" loading="lazy" onerror="this.classList.add('img-missing')">
-        <div class="slide-dots">
-          <span class="active"></span><span></span><span></span><span></span>
-        </div>
-        <div class="photo-caption">
-          <span class="name">Sahil Kumar</span>
-          <span class="role">WEB | APP Developer</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,80 L0,80 Z" style="fill:var(--bg-soft);"></path></svg></div>
-</section>
-
-<!-- ===== SKILLS ===== -->
-<section id="skills" style="background:var(--bg-soft);">
-  <div class="wrap">
-    <div class="section-head" data-reveal="fade">
-      <span class="eyebrow">Skills</span>
-      <h2>The stack I build with.</h2>
-      <p>A working toolkit across web, mobile, and data — picked up by building real projects rather than following one framework.</p>
-    </div>
-    <div class="spec-grid" data-reveal-group>
-      <div class="spec-card" data-reveal style="--i:0;">
-        <div class="ic-wrap">🌐</div>
-        <h4>Web Development</h4>
-        <div class="tag-row">
-          <span>React.js</span><span>JavaScript</span><span>Node.js</span><span>Flask</span><span>REST API</span><span>HTML/CSS</span>
-        </div>
-      </div>
-      <div class="spec-card" data-reveal style="--i:1;">
-        <div class="ic-wrap">📱</div>
-        <h4>App Development</h4>
-        <div class="tag-row">
-          <span>React Native</span><span>TypeScript</span>
-        </div>
-      </div>
-      <div class="spec-card" data-reveal style="--i:2;">
-        <div class="ic-wrap">🧠</div>
-        <h4>Languages</h4>
-        <div class="tag-row">
-          <span>Java</span><span>Python</span><span>C#</span><span>ASP.NET</span>
-        </div>
-      </div>
-      <div class="spec-card" data-reveal style="--i:3;">
-        <div class="ic-wrap">🗄️</div>
-        <h4>Databases</h4>
-        <div class="tag-row">
-          <span>MySQL</span><span>PostgreSQL</span><span>SQL Server</span><span>MongoDB</span>
-        </div>
-      </div>
-      <div class="spec-card" data-reveal style="--i:4;">
-        <div class="ic-wrap">🛠️</div>
-        <h4>Tools</h4>
-        <div class="tag-row">
-          <span>Git/GitHub</span><span>VS Code</span><span>IntelliJ</span><span>Android Studio</span><span>Anaconda</span>
-        </div>
-      </div>
-      <div class="spec-card" data-reveal style="--i:5;">
-        <div class="ic-wrap">🧩</div>
-        <h4>Soft Skills</h4>
-        <div class="tag-row">
-          <span>Team Leadership</span><span>Event Ops</span><span>Cross-functional Comms</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROJECTS ===== -->
-<section class="projects" id="projects">
-  <div class="wrap">
-    <div class="section-head" data-reveal="fade">
-      <span class="eyebrow">Projects</span>
-      <h2>Things I've actually created.</h2>
-      <p>Six projects spanning ML, full-stack web apps, and cross-platform mobile apps — flip a card for the full story.</p>
-    </div>
-    <div class="proj-grid-outer" id="projGridOuter">
-    <div class="proj-grid" data-reveal-group id="projGrid">
-
-<div class="proj-card" data-reveal style="--i:2;">
-    <div class="proj-card-inner">
-        <div class="proj-face proj-front">
-            <div class="proj-front-media">
-                <img src="assets/ProjectVault.png" data-desktop="assets/ProjectVault.png" data-mobile="assets/ProjectVault-mobile.png" alt="ProjectVault developer memory tool screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-                <div class="proj-text">
-                    <span class="proj-index">01 / Full-Stack Web + AI</span>
-                    <h3>ProjectVault — AI Project Memory System</h3>
-                </div>
-                <div class="proj-front-actions">
-                    <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                    <a href="https://project-vault-pn38.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-                </div>
-            </div>
-        </div>
-        <div class="proj-face proj-back">
-            <div class="proj-back-body">
-                <div class="proj-back-head">
-                    <h3>ProjectVault — AI Project Memory System</h3>
-                    <span class="proj-cat">01 / ProjectVault — AI Developer Memory</span>
-                </div>
-                <p class="proj-back-intro">
-                    ProjectVault is a comprehensive developer memory system designed to combat the problem of knowledge decay in personal projects. It offers a structured platform for documenting projects, integrating AI to generate missing information, and ensuring critical project insights are always accessible.
-                </p>
-                <ul class="proj-desc-list">
-                    <li>Combats knowledge decay by providing a dedicated space for detailed project documentation.</li>
-                    <li>Integrates Google Gemini 2.5 Flash for AI-powered documentation generation and project-specific chat.</li>
-                    <li>Secure & scalable data backend using PostgreSQL on Neon with Prisma, and Cloudinary for file management.</li>
-                    <li>Dynamic Next.js, TypeScript, Tailwind CSS frontend with Auth.js for secure authentication and JWT sessions.</li>
-                    <li>Supports Mermaid.js for live rendering of ER diagrams, system designs, and flowcharts.</li>
-                    <li>Features a Documentation Health Score and AI-driven interview preparation tools.</li>
-                </ul>
-                <div class="proj-tags">
-                    <span>Next.js</span>
-                    <span>TypeScript</span>
-                    <span>Tailwind CSS</span>
-                    <span>PostgreSQL</span>
-                    <span>Prisma</span>
-                    <span>Auth.js</span>
-                    <span>Cloudinary</span>
-                    <span>Gemini API</span>
-                    <span>Mermaid.js</span>
-                    <span>Vercel</span>
-                </div>
-            </div>
-            <div class="proj-back-actions">
-                <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-                <a href="https://project-vault-pn38.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-      
-     
-      
-
-
-
-      
-
-
-
-         <div class="proj-card" data-reveal style="--i:2;">
-        <div class="proj-card-inner">
-          <div class="proj-face proj-front">
-            <div class="proj-front-media">
-              <img src="assets/MealSync.png" data-desktop="assets/MealSync.png" data-mobile="assets/MealSync-mobile.png" alt="Akash Medicine House website screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-              <div class="proj-text">
-                <span class="proj-index">02 / Full-Stack Web + AI</span>
-                <h3>MealSync — AI-Powered Catering Management System</h3>
-              </div>
-              <div class="proj-front-actions">
-                <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                <a href="https://meal-sync-cattering-management-with-theta.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-              </div>
-            </div>
-          </div>
-          <div class="proj-face proj-back">
-            <div class="proj-back-body">
-              <div class="proj-back-head">
-              <h3>MealSync — AI-Powered Catering Management System</h3>
-              <span class="proj-cat">02 / MealSync — AI-Powered Catering Management System</span>
-            </div>
-              <p class="proj-back-intro">A multi-tenant catering platform that automates menu planning, allergy safety, and procurement for hospitals and universities using AI.</p>
-              <ul class="proj-desc-list">
-  <li>Built a multi-tenant NestJS backend serving hospital and university clients from a single codebase, with strict tenant isolation enforced via JWT + custom guards</li>
-  <li>Integrated Google Gemini to power 4 AI features — AI menu generation, an allergy conflict checker that blocks unsafe menus before publishing, procurement quantity</li>
-  <li>prediction, and waste root-cause analysis — each with a deterministic non-AI fallback
-Designed a 6-role permission system (Chef, Dietitian, Procurement Officer, Admin, Nurse, Student) with per-transition workflow rules for menu approval</li>
-  <li>Built a React + TypeScript frontend with role-based dashboards, live charts, and a custom glassmorphic design system</li>
-</ul>
-              <div class="proj-tags"><span>Nest.js</span><span>React.js</span><span>CSS</span><span>Postgresql</span><span>Gemini API</span></div>
-            </div>
-            <div class="proj-back-actions">
-              <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-              <a href="https://meal-sync-cattering-management-with-theta.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="proj-card" data-reveal style="--i:5;">
-        <div class="proj-card-inner">
-          <div class="proj-face proj-front">
-            <div class="proj-front-media">
-              <img src="assets/Untitled design (1).png" data-desktop="assets/Untitled design (1).png" data-mobile="assets/Untitled design (1)-mobile.png" alt="FixKarachi civic reporting app screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-              <div class="proj-text">
-                <span class="proj-index">03 / Mobile App</span>
-                <h3>FixKarachi — Civic Issue Reporting</h3>
-              </div>
-              <div class="proj-front-actions">
-                <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                <a href="https://fix-karachi-civic-issue-reporting-m.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-              </div>
-            </div>
-          </div>
-          <div class="proj-face proj-back">
-            <div class="proj-back-body">
-              <div class="proj-back-head">
-              <h3>FixKarachi — Civic Issue Reporting</h3>
-              <span class="proj-cat">03 / Mobile App</span>
-            </div>
-              <p class="proj-back-intro">A civic-tech mobile app that gives everyday residents a simple way to report and follow up on local infrastructure issues.</p>
-              <ul class="proj-desc-list">
-  <li>Developed a civic-issue reporting app in React Native for residents to flag local problems</li>
-  <li>Enabled reporting of issues like broken roads and water leakage with location context</li>
-  <li>Built an admin dashboard for city staff to track issue status in one consolidated view</li>
-  <li>Focused on accessibility and ease of use for everyday residents</li>
-</ul>
-              <div class="proj-tags"><span>React Native</span><span>TypeScript</span><span>JavaScript</span></div>
-            </div>
-            <div class="proj-back-actions">
-              <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-              <a href="https://fix-karachi-civic-issue-reporting-m.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="proj-card" data-reveal style="--i:4;">
-        <div class="proj-card-inner">
-          <div class="proj-face proj-front">
-            <div class="proj-front-media">
-              <img src="assets/USER SIDE (4).png" data-desktop="assets/USER SIDE (4).png" data-mobile="assets/USER SIDE (4)-mobile.png" alt="EventSphere mobile app screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-              <div class="proj-text">
-                <span class="proj-index">04 / Mobile App</span>
-                <h3>EventSphere — University Event Management</h3>
-              </div>
-              <div class="proj-front-actions">
-                <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                <a href="https://event-sphere-university-event-manag.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo </a>
-              </div>
-            </div>
-          </div>
-          <div class="proj-face proj-back">
-            <div class="proj-back-body">
-              <div class="proj-back-head">
-              <h3>EventSphere — University Event Management</h3>
-              <span class="proj-cat">04 / Mobile App</span>
-            </div>
-              <p class="proj-back-intro">A cross-platform mobile app that makes discovering, registering for, and tracking university events effortless.</p>
-              <ul class="proj-desc-list">
-  <li>Built a cross-platform mobile app with React Native and TypeScript for university event management</li>
-  <li>Implemented role-based access control to separate student and admin experiences</li>
-  <li>Enabled students to browse, register, and track events directly from the app</li>
-  <li>Focused on a smooth, native-feeling mobile UX</li>
-</ul>
-              <div class="proj-tags"><span>React Native</span><span>TypeScript</span><span>JavaScript</span></div>
-            </div>
-            <div class="proj-back-actions">
-              <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-              <a href="https://event-sphere-university-event-manag.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
-       
-
-
-       <div class="proj-card" data-reveal style="--i:0;">
-        <div class="proj-card-inner">
-          <div class="proj-face proj-front">
-            <div class="proj-front-media">
-              <img src="assets/PayPredict.png" data-desktop="assets/PayPredict.png" data-mobile="assets/PayPredict-mobile.png" alt="PayPredict salary prediction dashboard screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-              <div class="proj-text">
-                <span class="proj-index">05 / Machine Learning</span>
-                <h3>PayPredict — Salary Prediction Neural Network</h3>
-              </div>
-              <div class="proj-front-actions">
-                <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                <a href="https://paypredict.up.railway.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-              </div>
-            </div>
-          </div>
-          <div class="proj-face proj-back">
-            <div class="proj-back-body">
-              <div class="proj-back-head">
-              <h3>PayPredict — Salary Prediction Neural Network</h3>
-              <span class="proj-cat">05 / Machine Learning</span>
-            </div>
-              <p class="proj-back-intro">A deep learning salary predictor that turns raw position-level data into fast, reliable pay estimates for HR teams.</p>
-              <ul class="proj-desc-list">
-  <li>Built and trained a deep learning regression model in PyTorch to predict employee salaries from position-level data</li>
-  <li>Improved prediction accuracy by 91% through feature scaling and network optimization</li>
-  <li>Used Pandas for data preprocessing and feature engineering</li>
-  <li>Deployed the trained model behind a lightweight Flask REST API</li>
-</ul>
-              <div class="proj-tags"><span>Python</span><span>PyTorch</span><span>Pandas</span><span>Matplotlib</span><span>Flask</span></div>
-            </div>
-            <div class="proj-back-actions">
-              <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-              <a href="https://paypredict.up.railway.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-         <div class="proj-card" data-reveal style="--i:2;">
-        <div class="proj-card-inner">
-          <div class="proj-face proj-front">
-            <div class="proj-front-media">
-              <img src="assets/Akash.png" data-desktop="assets/Akash.png" data-mobile="assets/Akash-mobile.png" alt="Akash Medicine House website screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-              <div class="proj-text">
-                <span class="proj-index">06 / Business Website</span>
-                <h3>Akash Medicine House Buisness Website</h3>
-              </div>
-              <div class="proj-front-actions">
-                <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                <a href="https://akash-medicine-house-9vwm.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-              </div>
-            </div>
-          </div>
-          <div class="proj-face proj-back">
-            <div class="proj-back-body">
-              <div class="proj-back-head">
-              <h3>Akash Medicine House</h3>
-              <span class="proj-cat">06 / Business Website</span>
-            </div>
-              <p class="proj-back-intro">A clean, fully responsive business website that gives a local pharmacy a professional, trustworthy online presence.</p>
-              <ul class="proj-desc-list">
-  <li>Designed and developed a responsive business website for a local pharmacy client</li>
-  <li>Translated a custom Figma design into a production-ready front end</li>
-  <li>Built with HTML, CSS, JavaScript, and Bootstrap for cross-device responsiveness</li>
-  <li>Strengthened the client's digital presence with a professional, mobile-friendly site</li>
-</ul>
-              <div class="proj-tags"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Figma</span></div>
-            </div>
-            <div class="proj-back-actions">
-              <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-              <a href="https://akash-medicine-house-9vwm.vercel.app/" target="_blank" rel="noopener" class="btn btn-amber">Live Demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-   
-
-     
-
-
-      
-
-
-            
-      <div class="proj-card" data-reveal style="--i:1;">
-        <div class="proj-card-inner">
-          <div class="proj-face proj-front">
-            <div class="proj-front-media">
-              <img src="assets/OnlineVoting.jpg" data-desktop="assets/OnlineVoting.jpg" data-mobile="assets/Airconnect-mobile.png" alt="SmartVote admin dashboard screenshot" loading="lazy" onerror="this.classList.add('img-missing')">
-            </div>
-            <div class="proj-front-content">
-              <div class="proj-text">
-                <span class="proj-index">07 / Full-Stack Web</span>
-                <h3>SmartVote — Online Voting System</h3>
-              </div>
-              <div class="proj-front-actions">
-                <button type="button" class="btn btn-white proj-details-btn">View Details</button>
-                <a href="https://github.com/sahilkumar-05/SmartVote-Online-Voting-System-Website" target="_blank" rel="noopener" class="btn btn-amber">Github Link </a>
-              </div>
-            </div>
-          </div>
-          <div class="proj-face proj-back">
-            <div class="proj-back-body">
-              <div class="proj-back-head">
-              <h3>SmartVote — Online Voting System</h3>
-              <span class="proj-cat">07 / Full-Stack Web</span>
-            </div>
-              <p class="proj-back-intro">A secure, role-based online voting platform built to handle real elections with heavy concurrent traffic.</p>
-              <ul class="proj-desc-list">
-  <li>Designed and built a full-stack online voting platform using ASP.NET Core MVC and Entity Framework Core</li>
-  <li>Implemented a role-based admin panel for voter registration and election management</li>
-  <li>Engineered REST API endpoints to handle concurrent voting requests without compromising data integrity</li>
-  <li>Used SQL Server for relational data storage and query optimization</li>
-</ul>
-              <div class="proj-tags"><span>ASP.NET Core MVC</span><span>EF Core</span><span>SQL Server</span><span>REST APIs</span></div>
-            </div>
-            <div class="proj-back-actions">
-              <button type="button" class="btn btn-white proj-back-btn">← Back</button>
-              <a href="https://github.com/sahilkumar-05/SmartVote-Online-Voting-System-Website" target="_blank" rel="noopener" class="btn btn-amber">Github Link </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="proj-fade" id="projFade"></div>
-    </div>
-    <div class="proj-more-wrap" id="projMoreWrap">
-      <button type="button" class="btn btn-teal" id="projViewMoreBtn">View More Projects ↓</button>
-    </div>
-  </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,90 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" style="fill:var(--bg);"></path></svg></div>
-</section>
-
-<!-- ===== EXPERIENCE / LEADERSHIP ===== -->
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head" data-reveal="fade">
-      <span class="eyebrow">Leadership &amp; Experience</span>
-      <h2>Beyond the codebase.</h2>
-      <p>Coordinating people and events has sharpened the same skills that make me a better engineer — planning, ownership, and clear communication.</p>
-    </div>
-    <div class="exp-slider-wrap">
-      <div class="exp-slider" id="expSlider" data-reveal-group>
-        <div class="exp-card" data-reveal style="--i:0;">
-          <div class="exp-thumb"><img src="assets/Trophy.JPG" data-desktop="assets/Trophy.JPG" data-mobile="assets/Trophy-mobile.JPG" alt="Zabefest tech team photo" loading="lazy" onerror="this.classList.add('img-missing')"><span class="ph-badge">photo placeholder — replace me</span></div>
-          <div class="exp-body">
-            <span class="exp-meta">2026</span>
-            <h4>Tech Core Director</h4>
-            <div class="exp-org">Zabefest, SZABIST University</div>
-            <p>Coordinated a 6–10 member technical team to manage event systems and digital infrastructure for 300–1000 participants.</p>
-          </div>
-        </div>
-         
-        <div class="exp-card" data-reveal style="--i:1;">
-          <div class="exp-thumb"><img src="assets/Screenshot 2026-06-24 223552.png" data-desktop="assets/Screenshot 2026-06-24 223552.png" data-mobile="assets/Screenshot 2026-06-24 223552-mobile.png" alt="ACM Society marketing team photo" loading="lazy" onerror="this.classList.add('img-missing')"><span class="ph-badge">photo placeholder — replace me</span></div>
-          <div class="exp-body">
-            <span class="exp-meta">2025 – 2026</span>
-            <h4>Marketing Director</h4>
-            <div class="exp-org">ACM Society, SZABIST University</div>
-            <p>Increased student engagement by leading a 6–10 person marketing team through multi-channel promotional campaigns.</p>
-          </div>
-        </div>
-        <div class="exp-card" data-reveal style="--i:2;">
-          <div class="exp-thumb"><img src="assets/DEV_DAY.png" data-desktop="assets/DEV_DAY.png" data-mobile="assets/DEV_DAY-mobile.png" alt="Developers Day event photo" loading="lazy" onerror="this.classList.add('img-missing')"><span class="ph-badge">photo placeholder — replace me</span></div>
-          <div class="exp-body">
-            <span class="exp-meta">2026</span>
-            <h4>Brand Ambassador</h4>
-            <div class="exp-org">Developers Day, FAST University</div>
-            <p>Expanded the event's reach by representing Developers Day to the student tech community through direct outreach.</p>
-          </div>
-        </div>
-
- <div class="exp-card" data-reveal style="--i:2;">
-          <div class="exp-thumb"><img src="assets/Hackathon.jpeg" data-desktop="assets/Hackathon.jpeg" data-mobile="assets/Hackathon-mobile.jpeg" alt="Developers Day event photo" loading="lazy" onerror="this.classList.add('img-missing')"><span class="ph-badge">photo placeholder — replace me</span></div>
-          <div class="exp-body">
-            <span class="exp-meta">2026</span>
-            <h4>Participant</h4>
-            <div class="exp-org">Hackathon, Zab-e-Fest Szabist University</div>
-            <p>Participated in Hackathone at Zab-e-fest 2026 and gain mentorship from the industry leader and polish my skills of time management and leadership</p>
-          </div>
-        </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Full-Stack & AI Engineer</div>
+        <h1 class="hero-headline">Building full-stack products that ship, not just compile.</h1>
+        <p class="hero-subheadline">
+          BSCS student (SZABIST Karachi, Batch 2027). Building end-to-end web & mobile apps across React, Node.js, ASP.NET, PostgreSQL, and deep learning systems.
+        </p>
         
-        <div class="exp-card" data-reveal style="--i:0;">
-          <div class="exp-thumb"><img src="assets/hr.jpg" data-desktop="assets/hr.jpg" data-mobile="assets/hr-mobile.jpg" alt="Zabefest tech team photo" loading="lazy" onerror="this.classList.add('img-missing')"><span class="ph-badge">photo placeholder — replace me</span></div>
-          <div class="exp-body">
-            <span class="exp-meta">2026</span>
-            <h4>Attendee  </h4>
-            <div class="exp-org">National Youth Volunteer Network (NYVN)</div>
-            <p>I had the amazing opportunity to attend the National Youth Volunteer Network (NYVN) at SZABIST Karachi —                 
-            </p>
+        <div class="social-bar">
+          <a href="https://www.linkedin.com/in/sahil-kumar005/" target="_blank" rel="noopener" class="social-chip">
+            <i data-lucide="linkedin" size="15"></i> LinkedIn
+          </a>
+          <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="social-chip">
+            <i data-lucide="github" size="15"></i> GitHub
+          </a>
+          <button onclick="openContactModal()" class="social-chip">
+            <i data-lucide="mail" size="15"></i> Email Direct
+          </button>
+          <a href="tel:+923337302994" class="social-chip">
+            <i data-lucide="phone" size="15"></i> +92 333 7302994
+          </a>
+          <a href="assets/Sahil Kumar_Resume.docx (1).pdf" download class="social-chip" style="background: var(--apple-text); color: #fff;">
+            <i data-lucide="download" size="15"></i> Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- ABOUT SECTION -->
+    <section class="section-padding" id="about">
+      <div class="about-grid">
+        <div class="card-hanger-wrapper">
+          <div class="lanyard-strap"></div>
+          <div class="lanyard-clip"></div>
+          <div class="hanging-id-card">
+            <div class="card-hole"></div>
+            
+            <div class="id-photo-container">
+              <img src="assets/Portrail1.png" alt="Sahil Kumar at Zabefest" class="id-photo active">
+              <img src="assets/Portrait2.png" alt="Sahil Kumar working" class="id-photo">
+              <img src="assets/Portrait3.JPG" alt="Sahil Kumar at event" class="id-photo">
+              <img src="assets/portrait 4.jpg" alt="Sahil Kumar team" class="id-photo">
+            </div>
+
+            <div class="id-details">
+              <div class="id-name">Sahil Kumar</div>
+              <div class="id-role">WEB | APP Developer</div>
+              <div class="id-status">
+                <span class="status-dot"></span> Available for Internships
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <div class="section-header" style="margin-bottom: 20px;">
+            <h2 class="section-title">From coursework to production-shaped code.</h2>
+            <p class="section-subtitle">A quick overview of my journey.</p>
+          </div>
+          
+          <p>
+            I'm a Computer Science student at SZABIST, Karachi, expecting to graduate in 2027 with a strong academic standing (3.08 CGPA). Over the last couple of years I've moved past tutorial projects into building complete systems — a role-based online voting platform, an airline booking backend, and a PyTorch model that predicts salaries from position data.
+          </p>
+          <p>
+            I like owning things end-to-end: designing the database schema, writing the API, and shipping a UI that people can actually use. Outside of code, I've led technical and marketing teams as Tech Core Director for university festivals with 1000+ participants.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-number">3.08</div>
+              <div class="highlight-label">BSCS CGPA (SZABIST)</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-number">7+</div>
+              <div class="highlight-label">Full-Stack Projects Built</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="exp-nav">
-        <button class="exp-arrow" id="expPrev" aria-label="Previous experience card">←</button>
-        <button class="exp-arrow" id="expNext" aria-label="Next experience card">→</button>
+    </section>
+
+    <!-- WORK SHOWCASE SECTION (5 PROJECTS + BLANK GITHUB FRAME) -->
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Interactive Work Story.</h2>
+        <p class="section-subtitle">Explore my key web, mobile, and AI applications.</p>
+      </div>
+
+      <div class="pinned-showcase-wrapper" id="pinned-wrapper">
+        <div class="pinned-showcase-sticky">
+          
+          <!-- PROJECT 1 -->
+          <div class="showcase-layout web-layout active" data-index="0">
+            <div class="showcase-info-area">
+              <span class="showcase-badge">01 / Full-Stack Web + AI</span>
+              <h3 class="showcase-title">ProjectVault — AI Developer Memory System</h3>
+              <p class="showcase-desc">
+                Combats knowledge decay by providing a dedicated space for detailed project documentation. Integrates Google Gemini 2.5 Flash for AI-powered documentation generation and project-specific chat.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Next.js</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">PostgreSQL</span>
+                <span class="pill">Prisma</span>
+                <span class="pill">Gemini API</span>
+                <span class="pill">Mermaid.js</span>
+              </div>
+              <div class="action-btn-group">
+                <a href="https://project-vault-pn38.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
+                  <i data-lucide="globe" size="15"></i> Live Demo
+                </a>
+                <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-secondary">
+                  <i data-lucide="github" size="15"></i> GitHub
+                </a>
+              </div>
+            </div>
+            <div class="showcase-mock-area">
+              <div class="tablet-mockup">
+                <div class="tablet-screen">
+                  <img src="assets/ProjectVault.png" alt="ProjectVault Screenshot" class="mockup-img">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2 -->
+          <div class="showcase-layout app-layout" data-index="1">
+            <div class="showcase-mock-area">
+              <div class="mobile-mockup">
+                <div class="mobile-notch"></div>
+                <div class="mobile-screen">
+                  <img src="assets/Untitled design (1).png" alt="FixKarachi Screenshot" class="mockup-img">
+                </div>
+              </div>
+            </div>
+            <div class="showcase-info-area">
+              <span class="showcase-badge">02 / Civic Mobile Application</span>
+              <h3 class="showcase-title">FixKarachi — Civic Issue Reporting</h3>
+              <p class="showcase-desc">
+                Civic issue reporting mobile app where residents report municipal issues (broken roads, water leakage). Includes an admin dashboard to centralize complaint tracking across channels.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">React Native</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">JavaScript</span>
+              </div>
+              <div class="action-btn-group">
+                <a href="https://fix-karachi-civic-issue-reporting-m.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
+                  <i data-lucide="globe" size="15"></i> Live Demo
+                </a>
+                <a href="https://github.com/sahilkumar-05/FixKarachi-Civic-Issue-Reporting-Mobile-App" target="_blank" rel="noopener" class="btn-action-secondary">
+                  <i data-lucide="github" size="15"></i> GitHub Source
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 3 -->
+          <div class="showcase-layout web-layout" data-index="2">
+            <div class="showcase-info-area">
+              <span class="showcase-badge">03 / Enterprise AI Platform</span>
+              <h3 class="showcase-title">MealSync — Catering Management System</h3>
+              <p class="showcase-desc">
+                Multi-tenant catering platform serving hospitals and universities with 6 permission levels. Features AI menu generation, allergy conflict detection, procurement forecasting, and waste analysis.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Nest.js</span>
+                <span class="pill">React.js</span>
+                <span class="pill">PostgreSQL</span>
+                <span class="pill">Gemini API</span>
+              </div>
+              <div class="action-btn-group">
+                <a href="https://meal-sync-cattering-management-with-theta.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
+                  <i data-lucide="globe" size="15"></i> Live Demo
+                </a>
+                <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-secondary">
+                  <i data-lucide="github" size="15"></i> GitHub
+                </a>
+              </div>
+            </div>
+            <div class="showcase-mock-area">
+              <div class="tablet-mockup">
+                <div class="tablet-screen">
+                  <img src="assets/MealSync.png" alt="MealSync Platform" class="mockup-img">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 4 -->
+          <div class="showcase-layout app-layout" data-index="3">
+            <div class="showcase-mock-area">
+              <div class="mobile-mockup">
+                <div class="mobile-notch"></div>
+                <div class="mobile-screen">
+                  <img src="assets/USER SIDE (4).png" alt="EventSphere Mobile App" class="mockup-img">
+                </div>
+              </div>
+            </div>
+            <div class="showcase-info-area">
+              <span class="showcase-badge">04 / University Event Mobile App</span>
+              <h3 class="showcase-title">EventSphere — Campus Management</h3>
+              <p class="showcase-desc">
+                Cross-platform mobile app enabling students to browse and register for university events. Implemented role-based access control and dynamic flows in a single codebase.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">React Native</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">JavaScript</span>
+              </div>
+              <div class="action-btn-group">
+                <a href="https://event-sphere-university-event-manag.vercel.app/" target="_blank" rel="noopener" class="btn-action-primary">
+                  <i data-lucide="globe" size="15"></i> Live Demo
+                </a>
+                <a href="https://github.com/sahilkumar-05/EventSphere-University-Event-Management-Mobile-App" target="_blank" rel="noopener" class="btn-action-secondary">
+                  <i data-lucide="github" size="15"></i> GitHub Source
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 5 -->
+          <div class="showcase-layout web-layout" data-index="4">
+            <div class="showcase-info-area">
+              <span class="showcase-badge">05 / Machine Learning Neural Net</span>
+              <h3 class="showcase-title">PayPredict — Salary Neural Network</h3>
+              <p class="showcase-desc">
+                Deep learning regression neural network built in PyTorch to predict employee salaries from position-level data, improving prediction accuracy by 91%.
+              </p>
+              <div class="tech-pills">
+                <span class="pill">Python</span>
+                <span class="pill">PyTorch</span>
+                <span class="pill">Pandas</span>
+                <span class="pill">Flask</span>
+              </div>
+              <div class="action-btn-group">
+                <a href="https://paypredict.up.railway.app/" target="_blank" rel="noopener" class="btn-action-primary">
+                  <i data-lucide="globe" size="15"></i> Live Demo
+                </a>
+                <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-secondary">
+                  <i data-lucide="github" size="15"></i> GitHub
+                </a>
+              </div>
+            </div>
+            <div class="showcase-mock-area">
+              <div class="tablet-mockup">
+                <div class="tablet-screen">
+                  <img src="assets/PayPredict.png" alt="PayPredict Dashboard" class="mockup-img">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6TH SLIDE: CLEAN BLANK SCREEN WITH GITHUB CTA -->
+          <div class="showcase-layout" data-index="5" style="grid-template-columns: 1fr;">
+            <div class="blank-github-card">
+              <div class="blank-github-icon">
+                <i data-lucide="code" size="28" style="color: var(--apple-text);"></i>
+              </div>
+              <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.02em;">More Projects Available on GitHub</h3>
+              <p style="color: var(--apple-subtext); font-size: 0.95rem; max-width: 560px; margin-bottom: 24px; line-height: 1.5;">
+                Explore additional full-stack Web, Mobile, ASP.NET Core, and AI microservices repositories on my GitHub profile.
+              </p>
+              <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" class="btn-action-primary" style="padding: 12px 24px; font-size: 0.9rem;">
+                <i data-lucide="github" size="16"></i> Explore GitHub Repository
+              </a>
+            </div>
+          </div>
+
+          <!-- Progress Dots -->
+          <div class="showcase-progress">
+            <div class="progress-dot active" data-index="0"></div>
+            <div class="progress-dot" data-index="1"></div>
+            <div class="progress-dot" data-index="2"></div>
+            <div class="progress-dot" data-index="3"></div>
+            <div class="progress-dot" data-index="4"></div>
+            <div class="progress-dot" data-index="5"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CLEAN APPLE SKILLS CARDS GRID -->
+    <section class="section-padding" id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Developer Skill Matrix.</h2>
+        <p class="section-subtitle">Core technical capabilities across full-stack web, mobile, and artificial intelligence.</p>
+      </div>
+
+      <!-- Clean 4-Card Grid -->
+      <div class="skills-hud-grid">
+        
+        <!-- Frontend Card -->
+        <div class="hud-card">
+          <div class="hud-card-top">
+            <div class="hud-card-title"><i data-lucide="layout-grid" size="18"></i> Frontend Development</div>
+            <span class="hud-badge">UI/UX Engine</span>
+          </div>
+          <div class="skill-pills-static">
+            <span class="hud-skill-chip-static">React.js</span>
+            <span class="hud-skill-chip-static">Next.js</span>
+            <span class="hud-skill-chip-static">Tailwind CSS</span>
+            <span class="hud-skill-chip-static">HTML5 & CSS3</span>
+          </div>
+        </div>
+
+        <!-- Backend Card -->
+        <div class="hud-card">
+          <div class="hud-card-top">
+            <div class="hud-card-title"><i data-lucide="server" size="18"></i> Backend Systems</div>
+            <span class="hud-badge">APIs & Microservices</span>
+          </div>
+          <div class="skill-pills-static">
+            <span class="hud-skill-chip-static">Node.js</span>
+            <span class="hud-skill-chip-static">Nest.js</span>
+            <span class="hud-skill-chip-static">ASP.NET Core</span>
+            <span class="hud-skill-chip-static">Flask REST</span>
+          </div>
+        </div>
+
+        <!-- Mobile & AI Card -->
+        <div class="hud-card">
+          <div class="hud-card-top">
+            <div class="hud-card-title"><i data-lucide="smartphone" size="18"></i> Mobile & Deep Learning</div>
+            <span class="hud-badge">Mobile & AI</span>
+          </div>
+          <div class="skill-pills-static">
+            <span class="hud-skill-chip-static">React Native</span>
+            <span class="hud-skill-chip-static">TypeScript</span>
+            <span class="hud-skill-chip-static">PyTorch AI</span>
+            <span class="hud-skill-chip-static">Pandas ML</span>
+          </div>
+        </div>
+
+        <!-- Database Card -->
+        <div class="hud-card">
+          <div class="hud-card-top">
+            <div class="hud-card-title"><i data-lucide="database" size="18"></i> Data & Infrastructure</div>
+            <span class="hud-badge">Databases</span>
+          </div>
+          <div class="skill-pills-static">
+            <span class="hud-skill-chip-static">PostgreSQL</span>
+            <span class="hud-skill-chip-static">Prisma ORM</span>
+            <span class="hud-skill-chip-static">SQL Server</span>
+            <span class="hud-skill-chip-static">Git / GitHub</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HORIZONTAL INFINITE AUTO-SCROLL LEADERSHIP CAROUSEL -->
+    <section class="section-padding" id="leadership">
+      <div class="section-header">
+        <h2 class="section-title">Leadership & Outreach.</h2>
+        <p class="section-subtitle">Roles in university societies, tech festivals, and campus initiatives.</p>
+      </div>
+
+      <div class="marquee-container">
+        <div class="marquee-track">
+          
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/Trophy.JPG" alt="Zab-e-Fest Tech Core">
+            </div>
+            <div class="leadership-role">Tech Core Director</div>
+            <div class="leadership-org">Zabefest, SZABIST (2026)</div>
+            <div class="leadership-desc">Coordinated a 6–10 member technical team managing event systems and digital infrastructure for 300–1000 participants.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/Screenshot 2026-06-24 223552.png" alt="ACM Marketing Director">
+            </div>
+            <div class="leadership-role">Marketing Director</div>
+            <div class="leadership-org">ACM Society, SZABIST (2025–2026)</div>
+            <div class="leadership-desc">Increased student engagement by leading a 6–10 person marketing team through multi-channel promotional campaigns.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/DEV_DAY.png" alt="Brand Ambassador FAST">
+            </div>
+            <div class="leadership-role">Brand Ambassador</div>
+            <div class="leadership-org">Developers Day, FAST University (2026)</div>
+            <div class="leadership-desc">Expanded the event's reach by representing Developers Day to the student tech community through direct outreach.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/Hackathon.jpeg" alt="Hackathon Participant">
+            </div>
+            <div class="leadership-role">Hackathon Participant</div>
+            <div class="leadership-org">Zab-e-Fest Hackathon (2026)</div>
+            <div class="leadership-desc">Participated in Hackathon at Zab-e-Fest 2026, gaining mentorship from industry leaders to polish leadership skills.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/hr.jpg" alt="NYVN Volunteer">
+            </div>
+            <div class="leadership-role">Volunteer / Attendee</div>
+            <div class="leadership-org">National Youth Volunteer Network (2026)</div>
+            <div class="leadership-desc">Attended National Youth Volunteer Network (NYVN) at SZABIST Karachi, fostering youth community development.</div>
+          </div>
+
+          <!-- LOOP REPEAT -->
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/Trophy.JPG" alt="Zab-e-Fest Tech Core">
+            </div>
+            <div class="leadership-role">Tech Core Director</div>
+            <div class="leadership-org">Zabefest, SZABIST (2026)</div>
+            <div class="leadership-desc">Coordinated a 6–10 member technical team managing event systems for 300–1000 participants.</div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="card-img-wrapper">
+              <img src="assets/Screenshot 2026-06-24 223552.png" alt="ACM Marketing Director">
+            </div>
+            <div class="leadership-role">Marketing Director</div>
+            <div class="leadership-org">ACM Society, SZABIST (2025–2026)</div>
+            <div class="leadership-desc">Increased student engagement leading marketing teams across multi-channel campaigns.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TRANSPARENT GLASSMorphism AI HR ASSISTANT -->
+  <footer class="footer-bento">
+    <div class="container">
+      
+      <div class="footer-headline-box">
+        <h2 class="footer-headline">Looking for talent? Instant HR Intelligence.</h2>
+        <p class="footer-sub">Click any predefined topic below to inspect Sahil's academic records, leadership experience, or contact details.</p>
+      </div>
+
+      <!-- Transparent Glass Card -->
+      <div class="glass-assistant-card">
+        <div class="glass-assistant-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="glass-avatar">
+              <i data-lucide="sparkles" size="18"></i>
+            </div>
+            <div>
+              <div style="font-size: 0.9rem; font-weight: 700;">Sahil HR Intelligence</div>
+              <div style="font-size: 0.75rem; color: #34c759; font-weight: 600; display:flex; align-items:center; gap:4px;">
+                <span class="status-dot"></span> Pre-verified Candidate Profile
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; font-weight:600; color: var(--apple-subtext); background: rgba(0,0,0,0.04); padding: 4px 10px; border-radius:12px;">
+            Glassmorphic UI
+          </div>
+        </div>
+
+        <div class="glass-window-body" id="chatWindow">
+          <div class="chat-bubble bot">
+            Hello! Welcome to Sahil's candidate profile display. Please tap any option button below to auto-load detailed information regarding education (3.08 CGPA), leadership, tech stack, or direct contact methods!
+          </div>
+        </div>
+
+        <!-- Predefined Interactive Options -->
+        <div class="glass-predefined-options">
+          <span style="font-size: 0.78rem; font-weight: 700; color: var(--apple-subtext); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.05em; width: 100%;">Select Query:</span>
+          <button class="glass-option-btn" onclick="triggerPreset('edu')">
+            <i data-lucide="graduation-cap" size="14"></i> Education & CGPA
+          </button>
+          <button class="glass-option-btn" onclick="triggerPreset('leadership')">
+            <i data-lucide="award" size="14"></i> Leadership & Director Roles
+          </button>
+          <button class="glass-option-btn" onclick="triggerPreset('projects')">
+            <i data-lucide="folder-git2" size="14"></i> All Production Projects
+          </button>
+          <button class="glass-option-btn" onclick="triggerPreset('tech')">
+            <i data-lucide="cpu" size="14"></i> Core Tech Stack
+          </button>
+          <button class="glass-option-btn" onclick="triggerPreset('intern')">
+            <i data-lucide="briefcase" size="14"></i> Internship & Availability
+          </button>
+          <button class="glass-option-btn" onclick="triggerPreset('contact')">
+            <i data-lucide="phone-call" size="14"></i> Contact & Location
+          </button>
+        </div>
+
+        <!-- Direct Contact Action Buttons -->
+        <div class="glass-action-bottom-bar">
+          <span style="font-size: 0.82rem; color: var(--apple-subtext); font-weight: 500;">
+            Ready to schedule an interview or request a call?
+          </span>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button onclick="openContactModal()" class="btn-action-primary" style="padding: 8px 16px; font-size: 0.8rem;">
+              <i data-lucide="mail" size="14"></i> Contact Form
+            </button>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=heresahil294@gmail.com" target="_blank" class="btn-action-secondary" style="padding: 8px 16px; font-size: 0.8rem;">
+              <i data-lucide="send" size="14"></i> Gmail Email
+            </a>
+            <a href="tel:+923337302994" class="btn-action-secondary" style="padding: 8px 16px; font-size: 0.8rem;">
+              <i data-lucide="phone" size="14"></i> Call Sahil
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="system-status">
+          <span class="status-dot"></span> Open for Web & Mobile Engineering Internships 2026
+        </div>
+        <div>© 2026 Sahil Kumar. Built with clean HTML, CSS & JavaScript.</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- DIRECT CONTACT MODAL FORM -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeContactModal()">&times;</button>
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 6px;">Send Message to Sahil</h3>
+      <p style="color: var(--apple-subtext); font-size: 0.85rem; margin-bottom: 18px;">Fill out the form below or open web email directly.</p>
+      
+      <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+        </div>
+        <div class="form-group">
+          <label>Your Email</label>
+          <input type="email" name="email" class="form-control" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" class="form-control" rows="3" placeholder="Hi Sahil, we'd like to interview you for an opportunity..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-action-primary" style="width: 100%; justify-content: center; padding: 10px;">
+          Send Message
+        </button>
+      </form>
+
+      <div style="margin-top: 14px; text-align: center; font-size: 0.78rem; color: var(--apple-subtext);">
+        Or open directly in browser: 
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=heresahil294@gmail.com" target="_blank" style="color: var(--apple-text); font-weight: 600;">Gmail Web</a>
       </div>
     </div>
   </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,80 L0,80 Z" style="fill:var(--teal-band);"></path></svg></div>
-</section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-head" data-reveal="left">
-      <span class="eyebrow" style="color:#F2A71B;">Contact</span>
-      <h2 style="margin-top:12px;">Let's build something together.</h2>
-      <p>Open to web and mobile development internships — happy to talk about any of the projects above, or a role you're hiring for.</p>
-      <div class="contact-points">
-        <div class="c-point">
-          <span class="ic-wrap">📞</span>
-          <div><div class="t">Phone</div><div class="s"><a href="tel:+923337302994">+92 333 7302994</a></div></div>
-        </div>
-        <div class="c-point">
-          <span class="ic-wrap">✉️</span>
-          <div><div class="t">Email</div><div class="s"><a href="mailto:heresahil294@gmail.com">heresahil294@gmail.com</a></div></div>
-        </div>
-        <div class="c-point">
-          <span class="ic-wrap">💼</span>
-          <div><div class="t">LinkedIn</div><div class="s"><a href="https://www.linkedin.com/in/sahil-kumar005/" target="_blank" rel="noopener">linkedin.com/in/sahil-kumar005</a></div></div>
-        </div>
-        <div class="c-point">
-          <span class="ic-wrap">🐙</span>
-          <div><div class="t">GitHub</div><div class="s"><a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener">github.com/sahilkumar-05</a></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-form" data-reveal="right">
-      <div class="field-row">
-        <div class="field"><label>Name</label><input type="text" id="c-name" placeholder="Your name"></div>
-        <div class="field"><label>Email</label><input type="email" id="c-email" placeholder="you@email.com"></div>
-      </div>
-      <div class="field"><label>Subject</label><input type="text" id="c-subject" placeholder="Internship opportunity, project idea…"></div>
-      <div class="field"><label>Message</label><textarea id="c-message" rows="5" placeholder="Tell me a bit about it…"></textarea></div>
-      <button class="btn btn-teal" id="submitContact" style="justify-content:center;">Send Message →</button>
-    </div>
-  </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,80 L0,80 Z" style="fill:var(--teal-deep);"></path></svg></div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-brand-row">
-      <div class="footer-brand">
-        <span class="logo-mark" style="background:rgba(255,255,255,0.12);">SK</span>
-        <div>
-          <div style="font-family:var(--display);font-weight:700;color:#fff;">Sahil Kumar</div>
-          <p>Full-stack developer building web and mobile products with React, Node.js, ASP.NET and PostgreSQL.</p>
-        </div>
-      </div>
-      <div class="social-row">
-        <a href="https://github.com/sahilkumar-05" target="_blank" rel="noopener" aria-label="GitHub">G</a>
-        <a href="https://www.linkedin.com/in/sahil-kumar005/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a href="mailto:heresahil294@gmail.com" aria-label="Email">✉</a>
-      </div>
-    </div>
-
-    <div class="footer-grid">
-      <div>
-        <h5>Navigate</h5>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Projects</h5>
-        <ul>
-          <li><a href="https://paypredict.up.railway.app/" target="_blank" rel="noopener">PayPredict</a></li>
-          <li><a href="https://github.com/sahilkumar-05/SmartVote-Online-Voting-System-Website" target="_blank" rel="noopener">SmartVote</a></li>
-          <li><a href="https://github.com/sahilkumar-05/EventSphere-University-Event-Management-Mobile-App" target="_blank" rel="noopener">EventSphere</a></li>
-          <li><a href="https://github.com/sahilkumar-05/FixKarachi-Civic-Issue-Reporting-Mobile-App" target="_blank" rel="noopener">FixKarachi</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="tel:+923337302994">+92 333 7302994</a></li>
-          <li><a href="mailto:heresahil294@gmail.com">heresahil294@gmail.com</a></li>
-          <li><a href="#contact">Send a message</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Sahil Kumar. All rights reserved.</span>
-      <span>Built with HTML, CSS &amp; JavaScript.</span>
-    </div>
-  </div>
-</footer>
-
-<!-- Scroll to top -->
-<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
-<script src="Script.js"></script>
+ <script src="Script.js"></script>
 </body>
 </html>
